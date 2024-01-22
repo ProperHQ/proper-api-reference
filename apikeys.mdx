@@ -1,0 +1,36 @@
+---
+title: API keys
+description: Learn how to get API access to your Proper account.
+---
+
+## Create an API key
+
+Proper authenticates your API requests using your account’s API keys. If a request doesn’t include a valid key,
+Proper returns an invalid request error. If a request includes a deleted key, Proper returns an authentication error.
+
+<Tip>
+  We recommend creating [restricted API keys](#restricted-api-keys) and limit data acess to individual resources.
+</Tip>
+
+<Steps>
+  <Step title="First Step">
+    These are instructions or content that only pertain to the first step.
+  </Step>
+  <Step title="Second Step">
+    These are instructions or content that only pertain to the second step.
+  </Step>
+  <Step title="Third Step">
+    These are instructions or content that only pertain to the third step.
+  </Step>
+</Steps>
+
+## Multiple legal entities
+
+Proper generate a unique ID for each legal entity – we call this an owner. You can think of an owner as a separate account.
+When requesting the API you need an API key per owner that you want to access.
+
+Follow the steps above to optain an API Key for each of your owners.
+
+## Restricted API keys
+
+For optimal security, generate restricted API keys with precise access controls. For instance, when syncing with your accounting system, use a key that exclusively permits write operations, preventing unauthorized modifications or access to unrelated data.
