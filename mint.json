@@ -50,10 +50,45 @@
       "group": "Resources",
       "pages": [
         {
+          "group": "Tenancies",
+          "pages": [
+            "api-reference/tenancies/list",
+            "api-reference/tenancies/getTenancy"
+          ]
+        },
+        {
+          "group": "Leases",
+          "pages": [
+            "api-reference/leases/list",
+            "api-reference/leases/getLease"
+          ]
+        },
+        {
           "group": "Bills",
           "pages": [
             "api-reference/bills/object",
             "api-reference/bills/get"
+          ]
+        },
+        {
+          "group": "Products",
+          "pages": [
+            "api-reference/products/object",
+            "api-reference/products/get"
+          ]
+        },
+        {
+          "group": "Contacts",
+          "pages": [
+            "api-reference/contacts/list",
+            "api-reference/contacts/getContact"
+          ]
+        },
+        {
+          "group": "Rent adjustment plans",
+          "pages": [
+            "api-reference/rent-adjustment-plans/object",
+            "api-reference/rent-adjustment-plans/get"
           ]
         }
       ]

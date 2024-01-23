@@ -1,0 +1,66 @@
+---
+title: "List leases"
+api: "GET /leases"
+---
+
+### Response
+
+<ResponseField name="id" type="string">
+  The unique identifier for the lease.
+</ResponseField>
+
+<ResponseField name="tenancyId" type="string">
+  The identifier for the tenancy associated with the lease.
+</ResponseField>
+
+<ResponseField name="operationalState" type="OperationalState">
+  The operational state of the lease (e.g., Draft, Active).
+</ResponseField>
+
+<ResponseField name="contractPeriodState" type="ContractPeriodState (optional)">
+  The state of the contract period (e.g., MovingIn, Active).
+</ResponseField>
+
+<ResponseField name="primaryTenantContactName" type="string (optional)">
+  The name of the primary tenant contact.
+</ResponseField>
+
+<ResponseField name="tenantIds" type="Array of string">
+  List of tenant IDs associated with the lease.
+</ResponseField>
+
+<ResponseField name="associatedContactIds" type="Array of string">
+  List of associated contact IDs for the lease.
+</ResponseField>
+
+<ResponseField name="primaryTenantId" type="string (optional)">
+  The identifier for the primary tenant.
+</ResponseField>
+
+<ResponseField name="billingContactId" type="string (optional)">
+  The identifier for the billing contact.
+</ResponseField>
+
+<ResponseField name="balance" type="Money">
+  The balance amount for the lease.
+</ResponseField>
+
+<ResponseField name="contractStart" type="LocalDate (optional)">
+  The start date of the contract.
+</ResponseField>
+
+<ResponseField name="contractEnd" type="LocalDate (optional)">
+  The end date of the contract.
+</ResponseField>
+
+<ResponseField name="purpose" type="SmartText (optional)">
+  The purpose of the lease.
+</ResponseField>
+
+<ResponseField name="monthlyRentLevel" type="Money (optional)">
+  The monthly rent level.
+</ResponseField>
+
+<ResponseField name="archivedAt" type="ZonedDateTime (optional)">
+  The date and time when the lease was archived.
+</ResponseField>
