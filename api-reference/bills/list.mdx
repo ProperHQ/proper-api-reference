@@ -1,0 +1,137 @@
+---
+title: "List bills"
+api: "GET /bills"
+---
+
+### Response
+
+<ResponseField name="bills" type="Array of Bill Objects">
+  <Expandable title="properties of Bill Objects">
+
+    <ResponseField name="id" type="string">
+      The unique identifier for the bill
+    </ResponseField>
+
+    <ResponseField name="leaseId" type="string">
+      The identifier for the lease associated with the bill
+    </ResponseField>
+
+    <ResponseField name="created" type="datetime">
+      The creation date and time of the bill in ISO 8601 format
+    </ResponseField>
+
+    <ResponseField name="modified" type="datetime">
+      The last modification date and time of the bill in ISO 8601 format
+    </ResponseField>
+
+    <ResponseField name="period" type="string">
+      The billing period covered by the bill, in the format "YYYY-MM-DD/YYYY-MM-DD"
+    </ResponseField>
+
+    <ResponseField name="dueDate" type="date">
+      The due date for the bill payment in ISO 8601 format
+    </ResponseField>
+
+    <ResponseField name="billLineItems" type="Array of Bill Line Item Objects">
+      <Expandable title="properties of Bill Line Item Objects">
+
+        <ResponseField name="id" type="string">
+          The unique identifier for the bill line item
+        </ResponseField>
+
+        <ResponseField name="amount" type="Amount Object">
+          The amount charged for the item
+          <Expandable title="properties of Amount Object">
+
+            <ResponseField name="currency" type="string">
+              The currency code for the amount (e.g., "DKK")
+            </ResponseField>
+
+            <ResponseField name="amount" type="number">
+              The amount charged
+            </ResponseField>
+
+          </Expandable>
+        </ResponseField>
+
+        <ResponseField name="productKey" type="string">
+          The key or identifier for the product or service billed
+        </ResponseField>
+
+        <ResponseField name="productName" type="Localised String Object">
+          The name of the product or service in different languages
+          <Expandable title="properties">
+
+            <ResponseField name="en" type="string">
+              The English name of the product or service
+            </ResponseField>
+
+            <ResponseField name="da" type="string">
+              The Danish name of the product or service
+            </ResponseField>
+
+            <ResponseField name="nl" type="string">
+              The Dutch name of the product or service
+            </ResponseField>
+
+            <ResponseField name="de" type="string">
+              The German name of the product or service
+            </ResponseField>
+
+          </Expandable>
+        </ResponseField>
+
+        <ResponseField name="vat" type="VAT Object">
+          The VAT details for the bill line item
+          <Expandable title="properties of VAT Object">
+
+            <ResponseField name="taxMode" type="string">
+              The tax mode for the VAT (e.g., "Exempt")
+            </ResponseField>
+
+          </Expandable>
+        </ResponseField>
+
+        <ResponseField name="accountingPeriod" type="string">
+          The accounting period for the bill line item, in the format "YYYY-MM-DD/YYYY-MM-DD"
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="subtotal" type="Amount Object">
+      The subtotal amount for the bill
+      <Expandable title="properties of Amount Object">
+
+        <ResponseField name="currency" type="string">
+          The currency code for the subtotal (e.g., "DKK")
+        </ResponseField>
+
+        <ResponseField name="amount" type="number">
+          The subtotal amount
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="total" type="Amount Object">
+      The total amount due for the bill
+      <Expandable title="properties of Amount Object">
+
+        <ResponseField name="currency" type="string">
+          The currency code for the total (e.g., "DKK")
+        </ResponseField>
+
+        <ResponseField name="amount" type="number">
+          The total amount due
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="vatTotals" type="Array">
+      The total VAT amounts for the bill, split by different VAT rates or categories
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>

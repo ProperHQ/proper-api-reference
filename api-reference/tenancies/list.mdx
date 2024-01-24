@@ -5,42 +5,151 @@ api: "GET /tenancies"
 
 ### Response
 
-<ResponseField name="id" type="string">
-  The unique identifier for the tenancy.
-</ResponseField>
+<ResponseField name="tenancies" type="Array of tenancy objects">
+  <Expandable title="properties of tenancy objects">
 
-<ResponseField name="address" type="Address Object">
-  The address of the tenancy.
-</ResponseField>
+    <ResponseField name="id" type="string">
+      The unique identifier for the tenancy
+    </ResponseField>
 
-<ResponseField name="currentLease" type="ResponseLease Object (optional)">
-  Details of the current lease, if available.
-</ResponseField>
+    <ResponseField name="address" type="Address Object">
+      The address details of the tenancy
+      <Expandable title="properties">
 
-<ResponseField name="leaseIds" type="Array of string">
-  List of lease IDs associated with the tenancy.
-</ResponseField>
+        <ResponseField name="street" type="string">
+          The full street name and number
+        </ResponseField>
 
-<ResponseField name="unitType" type="UnitType (optional)">
-  The type of unit (e.g., APARTMENT, HOUSE).
-</ResponseField>
+        <ResponseField name="streetName" type="string">
+          The name of the street
+        </ResponseField>
 
-<ResponseField name="unitTypeName" type="string (optional)">
-  The name of the unit type.
-</ResponseField>
+        <ResponseField name="streetNumber" type="string">
+          The number of the property on the street
+        </ResponseField>
 
-<ResponseField name="roomCounts" type="Array of RoomCount Objects (optional)">
-  The count of various types of rooms in the tenancy.
-</ResponseField>
+        <ResponseField name="subdivision" type="string">
+          The subdivision of the address if applicable
+        </ResponseField>
 
-<ResponseField name="totalArea" type="ResponseArea Object (optional)">
-  Total area of the tenancy.
-</ResponseField>
+        <ResponseField name="postalCode" type="string">
+          The postal code for the address
+        </ResponseField>
 
-<ResponseField name="businessArea" type="ResponseArea Object (optional)">
-  Business area of the tenancy.
-</ResponseField>
+        <ResponseField name="city" type="string">
+          The city of the address
+        </ResponseField>
 
-<ResponseField name="archivedAt" type="ZonedDateTime (optional)">
-  The date and time when the tenancy was archived.
+        <ResponseField name="country" type="string">
+          The country code of the address
+        </ResponseField>
+
+        <ResponseField name="validated" type="boolean">
+          Indicator whether the address has been validated
+        </ResponseField>
+
+        <ResponseField name="verified" type="boolean">
+          Indicator whether the address has been verified
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="currentLease" type="Current Lease Object">
+      The details of the current lease for the tenancy
+      <Expandable title="properties">
+
+        <ResponseField name="id" type="string">
+          The unique identifier for the lease
+        </ResponseField>
+
+        <ResponseField name="tenancyId" type="string">
+          The identifier for the tenancy associated with the lease
+        </ResponseField>
+
+        <ResponseField name="operationalState" type="string">
+          The operational state of the lease (e.g., "Draft")
+        </ResponseField>
+
+        <ResponseField name="contractPeriodState" type="string">
+          The state of the contract period (e.g., "Active")
+        </ResponseField>
+
+        <ResponseField name="primaryTenantContactName" type="string">
+          The name of the primary tenant contact
+        </ResponseField>
+
+        <ResponseField name="tenantIds" type="Array of string">
+          The identifiers for the tenants
+        </ResponseField>
+
+        <ResponseField name="associatedContactIds" type="Array of string">
+          The identifiers for the associated contacts
+        </ResponseField>
+
+        <ResponseField name="primaryTenantId" type="string">
+          The identifier for the primary tenant
+        </ResponseField>
+
+        <ResponseField name="billingContactId" type="string">
+          The identifier for the billing contact
+        </ResponseField>
+
+        <ResponseField name="balance" type="string">
+          The balance for the lease, including the currency code
+        </ResponseField>
+
+        <ResponseField name="contractStart" type="date">
+          The start date of the contract in ISO 8601 format
+        </ResponseField>
+
+        <ResponseField name="purpose" type="string">
+          The purpose of the lease (e.g., "key:residential")
+        </ResponseField>
+
+        <ResponseField name="monthlyRentLevel" type="string">
+          The monthly rent level, including the currency code
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="leaseIds" type="Array of string">
+      The identifiers for all leases associated with the tenancy
+    </ResponseField>
+
+    <ResponseField name="unitType" type="string">
+      The type of the unit (e.g., "PARKING")
+    </ResponseField>
+
+    <ResponseField name="roomCounts" type="Array of Room Count Objects">
+      <Expandable title="properties of Room Count Objects">
+
+        <ResponseField name="type" type="string">
+          The type of the room (e.g., "ROOM")
+        </ResponseField>
+
+        <ResponseField name="count" type="integer">
+          The count of the room type
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="totalArea" type="Area Object">
+      The total area of the tenancy
+      <Expandable title="properties">
+
+        <ResponseField name="value" type="number">
+          The value of the total area
+        </ResponseField>
+
+        <ResponseField name="unit" type="string">
+          The unit of measurement for the area (e.g., "m²")
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+  </Expandable>
 </ResponseField>

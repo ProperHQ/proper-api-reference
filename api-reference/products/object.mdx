@@ -2,9 +2,51 @@
 title: "Products object"
 ---
 
-Bills are statements of amounts owed by a customer, and are either generated one-off, or generated periodically automatically.
-
-Proper will email the bills to your customer and await payment. These emails include the full bill information and all bill line tiems, payment details and an optional PDF invoice.
-
 ### Attributes
 
+<ResponseField name="productKey" type="string">
+  The key or identifier for the product
+</ResponseField>
+
+<ResponseField name="productName" type="Localised String Object">
+  The name of the product in different languages
+  <Expandable title="properties">
+
+    <ResponseField name="en" type="string">
+      The English name of the product
+    </ResponseField>
+
+    <ResponseField name="da" type="string">
+      The Danish name of the product
+    </ResponseField>
+
+    <ResponseField name="nl" type="string">
+      The Dutch name of the product
+    </ResponseField>
+
+    <ResponseField name="de" type="string">
+      The German name of the product
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="archived" type="boolean">
+  Indicator whether the product is archived
+</ResponseField>
+
+<ResponseField name="custom" type="boolean">
+  Indicator whether the product is a custom product
+</ResponseField>
+
+<ResponseField name="position" type="integer">
+  The position or order of the product in a list
+</ResponseField>
+
+<ResponseField name="isDefaultProduct" type="boolean">
+  Indicator whether the product is a default product
+</ResponseField>
+
+<ResponseField name="productId" type="string">
+  The unique identifier for the product (if applicable)
+</ResponseField>

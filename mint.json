@@ -52,6 +52,7 @@
         {
           "group": "Tenancies",
           "pages": [
+            "api-reference/tenancies/object",
             "api-reference/tenancies/list",
             "api-reference/tenancies/getTenancy"
           ]
@@ -59,6 +60,7 @@
         {
           "group": "Leases",
           "pages": [
+            "api-reference/leases/object",
             "api-reference/leases/list",
             "api-reference/leases/getLease"
           ]
@@ -67,28 +69,29 @@
           "group": "Bills",
           "pages": [
             "api-reference/bills/object",
-            "api-reference/bills/get"
+            "api-reference/bills/list"
           ]
         },
         {
           "group": "Products",
           "pages": [
             "api-reference/products/object",
-            "api-reference/products/get"
+            "api-reference/products/list"
           ]
         },
         {
           "group": "Contacts",
           "pages": [
+            "api-reference/contacts/object",
             "api-reference/contacts/list",
             "api-reference/contacts/getContact"
           ]
         },
         {
-          "group": "Rent adjustment plans",
+          "group": "Rent adjustment",
           "pages": [
-            "api-reference/rent-adjustment-plans/object",
-            "api-reference/rent-adjustment-plans/get"
+            "api-reference/rent-adjustment/object",
+            "api-reference/rent-adjustment/list"
           ]
         }
       ]

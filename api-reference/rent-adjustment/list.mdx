@@ -1,0 +1,115 @@
+---
+title: "List rent adjustments"
+api: "GET /rent-adjustment"
+---
+
+### Response
+
+<ResponseField name="rentAdjustmentPlans" type="Array of rent adjustment objects">
+  <Expandable title="properties of rent adjustment objects">
+
+    <ResponseField name="id" type="string">
+      The unique identifier for the rent adjustment plan
+    </ResponseField>
+
+    <ResponseField name="leaseId" type="string">
+      The identifier for the lease associated with the rent adjustment plan
+    </ResponseField>
+
+    <ResponseField name="created" type="datetime">
+      The creation date and time of the rent adjustment plan in ISO 8601 format
+    </ResponseField>
+
+    <ResponseField name="modified" type="datetime">
+      The last modification date and time of the rent adjustment plan in ISO 8601 format
+    </ResponseField>
+
+    <ResponseField name="adjusteeRef" type="string">
+      The reference to the adjustee in the rent adjustment plan
+    </ResponseField>
+
+    <ResponseField name="nextAdjustmentDate" type="date">
+      The next adjustment date in ISO 8601 format (if applicable)
+    </ResponseField>
+
+    <ResponseField name="adjustsRecurringBillItem" type="boolean">
+      Indicator whether the plan adjusts a recurring bill item
+    </ResponseField>
+
+    <ResponseField name="adjustsBalance" type="boolean">
+      Indicator whether the plan adjusts a balance
+    </ResponseField>
+
+    <ResponseField name="rentAdjustmentRules" type="Array of Rent Adjustment Rule Objects">
+      <Expandable title="properties of Rent Adjustment Rule Objects">
+
+        <ResponseField name="id" type="string">
+          The unique identifier for the rent adjustment rule
+        </ResponseField>
+
+        <ResponseField name="adjustmentType" type="string">
+          The type of adjustment (e.g., "Index")
+        </ResponseField>
+
+        <ResponseField name="adjustmentMonth" type="integer">
+          The month when adjustment occurs
+        </ResponseField>
+
+        <ResponseField name="firstYear" type="string">
+          The first year the adjustment is applicable
+        </ResponseField>
+
+        <ResponseField name="indexMonth" type="integer">
+          The month of the index used for the adjustment
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="adjustments" type="Array of Adjustment Objects">
+      <Expandable title="properties of Adjustment Objects">
+
+        <ResponseField name="id" type="string">
+          The unique identifier for the adjustment
+        </ResponseField>
+
+        <ResponseField name="adjustedOn" type="date">
+          The date when the adjustment was made in ISO 8601 format
+        </ResponseField>
+
+        <ResponseField name="year" type="string">
+          The year the adjustment is applicable
+        </ResponseField>
+
+        <ResponseField name="fromYearlyAmount" type="Amount Object">
+          The yearly amount before the adjustment
+        </ResponseField>
+
+        <ResponseField name="toYearlyAmount" type="Amount Object">
+          The yearly amount after the adjustment
+        </ResponseField>
+
+        <ResponseField name="yearlyAmountChange" type="Amount Object">
+          The change in the yearly amount due to the adjustment
+        </ResponseField>
+
+        <ResponseField name="fromPeriodAmount" type="Amount Object">
+          The period amount before the adjustment
+        </ResponseField>
+
+        <ResponseField name="toPeriodAmount" type="Amount Object">
+          The period amount after the adjustment
+        </ResponseField>
+
+        <ResponseField name="periodAmountChange" type="Amount Object">
+          The change in the period amount due to the adjustment
+        </ResponseField>
+
+        <ResponseField name="adjustmentRulesEffects" type="Array of Adjustment Rules Effect Objects">
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>

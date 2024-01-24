@@ -5,14 +5,20 @@ api: "GET /contacts"
 
 ### Response
 
-<ResponseField name="id" type="string">
-  The unique identifier for the contact.
-</ResponseField>
+<ResponseField name="contacts" type="Array of contact objects">
+  <Expandable title="properties of contact objects">
 
-<ResponseField name="name" type="string">
-  The name of the contact.
-</ResponseField>
+    <ResponseField name="id" type="string">
+      The unique identifier for the contact.
+    </ResponseField>
 
-<ResponseField name="email" type="string">
-  The email address of the contact.
+    <ResponseField name="name" type="string">
+      The name of the contact.
+    </ResponseField>
+
+    <ResponseField name="email" type="string">
+      The email address of the contact.
+    </ResponseField>
+
+  </Expandable>
 </ResponseField>
