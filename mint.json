@@ -26,17 +26,17 @@
   },
   "tabs": [
     {
-      "name": "API Reference",
+      "name": "API reference",
       "url": "api-reference"
     }
   ],
   "navigation": [
     {
       "group": "Get started",
-      "pages": ["introduction", "apikeys", "quickstart", "webhooks"]
+      "pages": ["introduction", "apikeys", "webhooks"]
     },
     {
-      "group": "API Reference",
+      "group": "API reference",
       "pages": [
         "api-reference/introduction",
         "api-reference/authentication",

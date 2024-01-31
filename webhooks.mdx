@@ -1,8 +1,28 @@
 ---
 title: "Webhooks"
-description: "Get notified when important events happen in Proper."
+description: "Listen for events on your Proper account so your integration can automatically trigger reactions."
 ---
 
-## Setup webhooks
+## Why use webhooks
 
-...
+Integrating Proper into your applications offers the valuable capability to instantly respond to events occurring within your Proper account. This real-time responsiveness is enabled through webhook events.
+
+To tap into these events, begin by setting up webhook endpoints in your system. Once registered, Proper seamlessly streams live event data directly to your application's webhook endpoint. This happens through secure HTTPS connections, with Proper dispatching JSON payloads containing an event object.
+
+Webhook events are incredibly useful for tracking asynchronous activities. For instance, they keep you updated on key events like payment reconciliations, bill creations, lease terminations, or rent adjustments. This feature ensures your backend systems are always in sync with the latest developments in your Proper account.
+
+### Webhook events
+
+By registering webhook endpoints in your Proper account, you enable Proper to automatically send an event as part of POST requests to the registered webhook endpoint hosted by your application. After your webhook endpoint receives the event, your application can run backend actions. For example, it could trigger your ERP system's API to log a customer payment upon receiving a `payment_received` event.
+
+
+#### Example event object
+
+```bash
+{
+  id: "",
+  ...
+}
+```
+
+#### Events
