@@ -73,6 +73,18 @@
           ]
         },
         {
+          "group": "Recurring bill items",
+          "pages": [
+            "api-reference/recurring-bill-items/object"
+          ]
+        },
+        {
+          "group": "Transactions",
+          "pages": [
+            "api-reference/transactions/object"
+          ]
+        },
+        {
           "group": "Products",
           "pages": [
             "api-reference/products/object",
@@ -92,6 +104,12 @@
           "pages": [
             "api-reference/rent-adjustment/object",
             "api-reference/rent-adjustment/list"
+          ]
+        },
+        {
+          "group": "Categories",
+          "pages": [
+            "api-reference/categories/object"
           ]
         }
       ]
