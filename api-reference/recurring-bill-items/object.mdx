@@ -1,0 +1,125 @@
+---
+title: "The recurring bill item object"
+---
+
+### Attributes
+
+<ResponseField name="id" type="string">
+  The unique identifier for the recurring bill item
+</ResponseField>
+
+<ResponseField name="ownerId" type="string">
+  The identifier for the owner associated with the recurring bill item
+</ResponseField>
+
+<ResponseField name="leaseId" type="string">
+  The identifier for the lease associated with the recurring bill item
+</ResponseField>
+
+<ResponseField name="created" type="datetime">
+  The creation date and time of the recurring bill item in ISO 8601 format
+</ResponseField>
+
+<ResponseField name="modified" type="datetime">
+  The last modification date and time of the recurring bill item in ISO 8601 format
+</ResponseField>
+
+<ResponseField name="productKey" type="string">
+  The key or identifier for the product or service billed (e.g. "key:rent")
+</ResponseField>
+
+<ResponseField name="startedOn" type="date">
+  First due date for the recurring bill item in ISO 8601 format
+</ResponseField>
+
+<ResponseField name="cancelledOn" type="boolean">
+  The date in ISO 8601 format on which recurring bill item is stopped from being billed (if applicable)
+</ResponseField>
+
+<ResponseField name="endedOn" type="boolean">
+  The date in ISO 8601 format on which recurring bill item ends billing (if applicable)
+</ResponseField>
+
+<ResponseField name="billingCycle" type="Billing Cycle Object">
+  <Expandable title="properties of Billing Cycle Object">
+
+    <ResponseField name="timeUnit" type="string">
+      Time unit based on which the billing cycle is calculated ("Month")
+    </ResponseField>
+
+    <ResponseField name="periodLength" type="integer">
+      The number of time units in the billing cycle (e.g. 1 month, 3 months)
+    </ResponseField>
+
+    <ResponseField name="start" type="integer">
+      Index of a month when the billing cycle starts (e.g. 1 for January)
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="amountRecords" type="Array of Amount Record Objects">
+  <Expandable title="properties of Amount Record Object">
+
+    <ResponseField name="id" type="string">
+      The unique identifier for the amount record
+    </ResponseField>
+
+    <ResponseField name="value" type="string">
+      The amount charged for the recurring bill item (e.g. "DKK 100")
+    </ResponseField>
+
+    <ResponseField name="start" type="date">
+      The date in ISO 8601 format from which the amount is valid
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="vatRecords" type="Array of Vat Record Objects">
+  <Expandable title="properties of Vat Record Object">
+
+    <ResponseField name="id" type="string">
+      The unique identifier for the VAT record
+    </ResponseField>
+
+    <ResponseField name="value" type="VAT Object">
+      The VAT details for the recurring bill item
+
+      <Expandable title="properties of VAT Object">
+
+        <ResponseField name="taxMode" type="string">
+          The tax mode for the VAT (e.g. "Exempt", "Exclusive")
+        </ResponseField>
+
+        <ResponseField name="taxRate" type="number">
+          The tax rate for the VAT (e.g. 0.25) (if applicable)
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="start" type="date">
+      The date in ISO 8601 format from which the VAT is valid
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="descriptionRecords" type="Array of Description Record Objects">
+  <Expandable title="properties of Description Record Object">
+
+    <ResponseField name="id" type="string">
+      The unique identifier for the description record
+    </ResponseField>
+
+    <ResponseField name="value" type="string">
+      The content of the description that is going to be put on the bill
+    </ResponseField>
+
+    <ResponseField name="start" type="date">
+      The date in ISO 8601 format from which the description is valid
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>

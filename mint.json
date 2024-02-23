@@ -87,6 +87,28 @@
           ]
         },
         {
+          "group": "Recurring bill items",
+          "pages": [
+            "api-reference/recurring-bill-items/object",
+            "api-reference/recurring-bill-items/list",
+            "api-reference/recurring-bill-items/create"
+          ]
+        },
+        {
+          "group": "One time bill items",
+          "pages": [
+            "api-reference/one-time-bill-items/object",
+            "api-reference/one-time-bill-items/list",
+            "api-reference/one-time-bill-items/create"
+          ]
+        },
+        {
+          "group": "Transactions",
+          "pages": [
+            "api-reference/transactions/object"
+          ]
+        },
+        {
           "group": "Products",
           "pages": [
             "api-reference/products/object",
@@ -106,6 +128,12 @@
           "pages": [
             "api-reference/rent-adjustment/object",
             "api-reference/rent-adjustment/list"
+          ]
+        },
+        {
+          "group": "Categories",
+          "pages": [
+            "api-reference/categories/object"
           ]
         }
       ]
