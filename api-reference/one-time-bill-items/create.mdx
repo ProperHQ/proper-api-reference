@@ -13,41 +13,41 @@ api: "POST /one-time-bill-items"
 
   <Expandable title="properties of Billing Cycle Object">
 
-     <ResponseField name="productKey" type="string" required>
+     <ParamField body="productKey" type="string" required>
        The key or identifier for the product or service billed (e.g. "key:rent")
-     </ResponseField>
+     </ParamField>
 
-     <ResponseField name="description" type="string">
+     <ParamField body="description" type="string">
        The content of the description that is going to be put on the bill
-     </ResponseField>
+     </ParamField>
 
-     <ResponseField name="amount" type="string" required>
+     <ParamField body="amount" type="string" required>
         The amount charged for the one-time bill item (e.g. "DKK 100")
-     </ResponseField>
+     </ParamField>
 
-     <ResponseField name="dueDate" type="date" required>
+     <ParamField body="dueDate" type="date" required>
        The date in ISO 8601 format that one-time bill item is due
-     </ResponseField>
+     </ParamField>
 
-     <ResponseField name="accountingPeriod" type="string" required>
+     <ParamField body="accountingPeriod" type="string" required>
        The accounting period for the one-time bill item, in the format "YYYY-MM-DD/YYYY-MM-DD"
-     </ResponseField>
+     </ParamField>
 
-     <ResponseField name="vat" type="VAT Object">
+     <ParamField body="vat" type="VAT Object">
        The VAT details for the one-time bill item
 
        <Expandable title="properties of VAT Object">
 
-         <ResponseField name="taxMode" type="string">
+         <ParamField body="taxMode" type="string">
            The tax mode for the VAT (e.g. "Exempt", "Exclusive")
-         </ResponseField>
+         </ParamField>
 
-         <ResponseField name="taxRate" type="number">
+         <ParamField body="taxRate" type="number">
            The tax rate for the VAT (e.g. 0.25) (if applicable)
-         </ResponseField>
+         </ParamField>
 
        </Expandable>
-     </ResponseField>
+     </ParamField>
 
   </Expandable>
 </ParamField>
