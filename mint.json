@@ -75,7 +75,17 @@
         {
           "group": "Recurring bill items",
           "pages": [
-            "api-reference/recurring-bill-items/object"
+            "api-reference/recurring-bill-items/object",
+            "api-reference/recurring-bill-items/list",
+            "api-reference/recurring-bill-items/create"
+          ]
+        },
+        {
+          "group": "One time bill items",
+          "pages": [
+            "api-reference/one-time-bill-items/object",
+            "api-reference/one-time-bill-items/list",
+            "api-reference/one-time-bill-items/create"
           ]
         },
         {

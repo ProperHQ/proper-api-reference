@@ -1,0 +1,63 @@
+---
+title: "Create one-time bill item"
+api: "POST /one-time-bill-items"
+---
+
+### Request
+
+<ParamField body="leaseId" type="string" required>
+  The lease for which one-time bill items will be created
+</ParamField>
+
+<ParamField body="oneTimeBillItem" type="One-time Bill Item" required>
+
+  <Expandable title="properties of Billing Cycle Object">
+
+     <ParamField body="productKey" type="string" required>
+       The key or identifier for the product or service billed (e.g. "key:rent")
+     </ParamField>
+
+     <ParamField body="description" type="string">
+       The content of the description that is going to be put on the bill
+     </ParamField>
+
+     <ParamField body="amount" type="string" required>
+        The amount charged for the one-time bill item (e.g. "DKK 100")
+     </ParamField>
+
+     <ParamField body="dueDate" type="date" required>
+       The date in ISO 8601 format that one-time bill item is due
+     </ParamField>
+
+     <ParamField body="accountingPeriod" type="string" required>
+       The accounting period for the one-time bill item, in the format "YYYY-MM-DD/YYYY-MM-DD"
+     </ParamField>
+
+     <ParamField body="vat" type="VAT Object">
+       The VAT details for the one-time bill item
+
+       <Expandable title="properties of VAT Object">
+
+         <ParamField body="taxMode" type="string">
+           The tax mode for the VAT (e.g. "Exempt", "Exclusive")
+         </ParamField>
+
+         <ParamField body="taxRate" type="number">
+           The tax rate for the VAT (e.g. 0.25) (if applicable)
+         </ParamField>
+
+       </Expandable>
+     </ParamField>
+
+  </Expandable>
+</ParamField>
+
+### Response
+
+<ResponseField name="oneTimeBillItemId" type="string">
+  The unique identifier for the created one-time bill item
+</ResponseField>
+
+<ResponseField name="dueDate" type="date">
+  The due date in ISO 8601 format of the one-time bill item
+</ResponseField>
