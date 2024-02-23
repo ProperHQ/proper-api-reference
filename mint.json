@@ -73,6 +73,20 @@
           ]
         },
         {
+          "group": "Payments",
+          "pages": [
+            "api-reference/payments/object",
+            "api-reference/payments/list"
+          ]
+        },
+        {
+          "group": "Payouts",
+          "pages": [
+            "api-reference/payouts/object",
+            "api-reference/payouts/list"
+          ]
+        },
+        {
           "group": "Products",
           "pages": [
             "api-reference/products/object",
