@@ -1,0 +1,37 @@
+---
+title: "The payout object"
+---
+
+Payouts are the result of Proper performing a payout to a customer. This can be either a payment or a refund.
+Fees are subtracted from the payout, and the net amount is the amount that is actually paid out to the customer.
+The bankStatement field is the reference that will appear on the customer's bank statement.
+
+### Attributes
+
+<ResponseField name="id" type="string">
+  The unique identifier for the payout
+</ResponseField>
+
+<ResponseField name="payoutReason" type="string">
+  The reason for the payout. Can be either Payment or Refund
+</ResponseField>
+
+<ResponseField name="payoutDate" type="datetime">
+  The date the payout was made
+</ResponseField>
+
+<ResponseField name="net" type="Amount Object">
+  The net amount of the payout
+</ResponseField>
+
+<ResponseField name="fees" type="Amount Object">
+  The fees subtracted from the payout
+</ResponseField>
+
+<ResponseField name="gross" type="Amount Object">
+  The gross amount of the payout
+</ResponseField>
+
+<ResponseField name="bankStatement" type="String">
+  The bank statement reference for the payout
+</ResponseField>

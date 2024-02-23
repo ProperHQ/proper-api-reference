@@ -73,6 +73,20 @@
           ]
         },
         {
+          "group": "Payments",
+          "pages": [
+            "api-reference/payments/object",
+            "api-reference/payments/list"
+          ]
+        },
+        {
+          "group": "Payouts",
+          "pages": [
+            "api-reference/payouts/object",
+            "api-reference/payouts/list"
+          ]
+        },
+        {
           "group": "Recurring bill items",
           "pages": [
             "api-reference/recurring-bill-items/object",

@@ -1,0 +1,39 @@
+---
+title: "List payments"
+api: "GET /payments"
+---
+
+### Response
+
+<ResponseField name="payments" type="Array of Payout Object">
+  <Expandable title="properties of Payout Objects">
+
+    <ResponseField name="id" type="string">
+      The unique identifier for the payment
+    </ResponseField>
+
+    <ResponseField name="paymentDate" type="datetime">
+      The date the payment was made
+    </ResponseField>
+
+    <ResponseField name="net" type="Amount Object">
+      The net amount of the payment
+    </ResponseField>
+
+    <ResponseField name="fees" type="Amount Object">
+      The fees subtracted from the payment
+    </ResponseField>
+
+    <ResponseField name="gross" type="Amount Object">
+      The gross amount of the payment
+    </ResponseField>
+
+    <ResponseField name="payoutId" type="String">
+      The payout that resulted from this payment
+    </ResponseField>
+
+    <ResponseField name="bankStatement" type="String">
+      The bank statement reference for the payment
+    </ResponseField>
+  </Expandable>
+</ResponseField>
