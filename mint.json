@@ -54,7 +54,8 @@
           "pages": [
             "api-reference/tenancies/object",
             "api-reference/tenancies/list",
-            "api-reference/tenancies/getTenancy"
+            "api-reference/tenancies/get",
+            "api-reference/tenancies/create"
           ]
         },
         {
@@ -62,7 +63,7 @@
           "pages": [
             "api-reference/leases/object",
             "api-reference/leases/list",
-            "api-reference/leases/getLease"
+            "api-reference/leases/get"
           ]
         },
         {
@@ -120,7 +121,7 @@
           "pages": [
             "api-reference/contacts/object",
             "api-reference/contacts/list",
-            "api-reference/contacts/getContact"
+            "api-reference/contacts/get"
           ]
         },
         {
@@ -133,7 +134,8 @@
         {
           "group": "Categories",
           "pages": [
-            "api-reference/categories/object"
+            "api-reference/categories/object",
+            "api-reference/categories/list"
           ]
         }
       ]

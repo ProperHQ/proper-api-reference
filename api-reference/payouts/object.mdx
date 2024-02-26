@@ -12,7 +12,7 @@ The bankStatement field is the reference that will appear on the customer's bank
   The unique identifier for the payout
 </ResponseField>
 
-<ResponseField name="payoutReason" type="string">
+<ResponseField name="payoutReason" type="nullable string">
   The reason for the payout. Can be either Payment or Refund
 </ResponseField>
 
@@ -21,17 +21,53 @@ The bankStatement field is the reference that will appear on the customer's bank
 </ResponseField>
 
 <ResponseField name="net" type="Amount Object">
-  The net amount of the payout
+   The net amount of the payout
+
+   <Expandable title="properties of Amount Object">
+
+     <ResponseField name="currency" type="string">
+       The currency code for the net amount (e.g., "DKK")
+     </ResponseField>
+
+     <ResponseField name="amount" type="number">
+       The amount of the net amount (e.g., 100.00)
+     </ResponseField>
+
+   </Expandable>
 </ResponseField>
 
 <ResponseField name="fees" type="Amount Object">
-  The fees subtracted from the payout
+   The fees subtracted from the payout
+
+   <Expandable title="properties of Amount Object">
+
+     <ResponseField name="currency" type="string">
+       The currency code for the fees amount (e.g., "DKK")
+     </ResponseField>
+
+     <ResponseField name="amount" type="number">
+       The amount of the fees amount (e.g., 100.00)
+     </ResponseField>
+
+   </Expandable>
 </ResponseField>
 
 <ResponseField name="gross" type="Amount Object">
-  The gross amount of the payout
+   The gross amount of the payout
+
+   <Expandable title="properties of Amount Object">
+
+     <ResponseField name="currency" type="string">
+       The currency code for the gross amount (e.g., "DKK")
+     </ResponseField>
+
+     <ResponseField name="amount" type="number">
+       The amount of the gross amount (e.g., 100.00)
+     </ResponseField>
+
+   </Expandable>
 </ResponseField>
 
-<ResponseField name="bankStatement" type="String">
+<ResponseField name="bankStatement" type="nullable string">
   The bank statement reference for the payout
 </ResponseField>

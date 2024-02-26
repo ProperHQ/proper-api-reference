@@ -9,20 +9,31 @@ api: "POST /recurring-bill-items"
   The lease for which recurring bill items will be created
 </ParamField>
 
-<ParamField body="recurringBillItem" type="Recurring Bill Item" required>
+<ParamField body="recurringBillItem" type="Recurring Bill Item Object" required>
 
-  <Expandable title="properties of Billing Cycle Object">
+  <Expandable title="properties of Recurring Bill Item Object">
 
     <ParamField body="productKey" type="string" required>
-      The key or identifier for the product or service billed (e.g. "key:rent")
+      The key or identifier for the product or service billed (e.g., "key:rent")
     </ParamField>
 
     <ParamField body="description" type="string">
       The content of the description that is going to be put on the bill
     </ParamField>
 
-    <ParamField body="amount" type="string" required>
-      The amount charged for the recurring bill item (e.g. "DKK 100")
+    <ParamField body="amount" type="Amount Object" required>
+       The amount charged for the recurring bill item
+       <Expandable title="properties of Amount Object">
+
+         <ParamField body="currency" type="string" required>
+           The currency code for the recurring bill item amount (e.g., "DKK")
+         </ParamField>
+
+         <ParamField body="amount" type="number" required>
+           The amount of the recurring bill item amount (e.g., 100.00)
+         </ParamField>
+
+       </Expandable>
     </ParamField>
 
     <ParamField body="vat" type="VAT Object" required>
@@ -31,11 +42,11 @@ api: "POST /recurring-bill-items"
       <Expandable title="properties of VAT Object">
 
         <ParamField body="taxMode" type="string" required>
-          The tax mode for the VAT (e.g. "Exempt", "Exclusive")
+          The tax mode for the VAT (e.g., "Exempt", "Exclusive")
         </ParamField>
 
         <ParamField body="taxRate" type="number">
-          The tax rate for the VAT (e.g. 0.25) (if applicable)
+          The tax rate for the VAT (e.g., 0.25)
         </ParamField>
 
       </Expandable>
@@ -47,7 +58,7 @@ api: "POST /recurring-bill-items"
       <Expandable title="properties of Due Date Rule">
 
         <ParamField body="dayOfPeriod" type="integer" required>
-            The day of the period when the due date is calculated (e.g. 1 for the first day after period starts, -1 for the last day before period starts)
+            The day of the period when the due date is calculated (e.g., 1 for the first day after period starts, -1 for the last day before period starts)
         </ParamField>
 
       </Expandable>
@@ -61,11 +72,11 @@ api: "POST /recurring-bill-items"
         </ParamField>
 
         <ParamField body="periodLength" type="integer" required>
-          The number of time units in the billing cycle (e.g. 1 month, 3 months)
+          The number of time units in the billing cycle (e.g., 1 month, 3 months)
         </ParamField>
 
         <ParamField body="start" type="integer" required>
-          Index of a month when the billing cycle starts (e.g. 1 for January)
+          Index of a month when the billing cycle starts (e.g., 1 for January)
         </ParamField>
 
       </Expandable>
@@ -79,8 +90,19 @@ api: "POST /recurring-bill-items"
 
         <Expandable>
 
-            <ParamField body="amount" type="string" required>
-              The amount charged for the first billing period recurring bill item (e.g. "DKK 100")
+            <ParamField body="amount" type="Amount Object" required>
+                The amount charged for the first billing period recurring bill item
+                <Expandable title="properties of Amount Object">
+
+                  <ParamField body="currency" type="string" required>
+                    The currency code for the first billing period recurring bill item amount (e.g., "DKK")
+                  </ParamField>
+
+                  <ParamField body="amount" type="number" required>
+                    The amount of the first billing period recurring bill item amount (e.g., 100.00)
+                  </ParamField>
+
+                </Expandable>
             </ParamField>
 
             <ParamField body="dueDate" type="date" required>
@@ -100,13 +122,24 @@ api: "POST /recurring-bill-items"
 
       <Expandable>
 
-        <ParamField body="amount" type="string">
-          The amount that is going to be subtracted from recurring bill item amount (e.g. "DKK 100")
-          Either this or "percentage" is required
+        <ParamField body="amount" type="Amount Object">
+            The amount that is going to be subtracted from the recurring bill item amount
+            Either this or "percentage" is required
+            <Expandable title="properties of Amount Object">
+
+              <ParamField body="currency" type="string">
+                The currency code for the amount subtracted from the recurring bill item amount (e.g., "DKK")
+              </ParamField>
+
+              <ParamField body="amount" type="number">
+                The amount subtracted from the recurring bill item amount (e.g., 100.00)
+              </ParamField>
+
+            </Expandable>
         </ParamField>
 
         <ParamField body="percentage" type="number">
-          The percentage of from recurring bill item amount that is going to be subtracted (e.g. 0.10)
+          The percentage of the recurring bill item amount that is going to be subtracted (e.g., 0.10)
           Either this or "amount" is required
         </ParamField>
 

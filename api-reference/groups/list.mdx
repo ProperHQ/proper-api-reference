@@ -1,0 +1,28 @@
+---
+title: "List categories"
+api: "GET /groups"
+---
+
+### Request
+
+This request supports pagination.
+
+<ParamField query="categoryId" type="string" required>
+  The category for which groups will be returned
+</ParamField>
+
+### Response
+
+<ResponseField name="groups" type="Array of Group Objects">
+  <Expandable title="properties of Group Objects">
+
+    <ResponseField name="id" type="string">
+      The unique identifier for the group
+    </ResponseField>
+
+    <ResponseField name="name" type="string">
+      The name of the group
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>

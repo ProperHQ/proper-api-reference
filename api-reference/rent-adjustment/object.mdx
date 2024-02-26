@@ -1,5 +1,5 @@
 ---
-title: "The rent adjustment object"
+title: "The rent adjustment plan object"
 ---
 
 ### Attributes
@@ -24,20 +24,52 @@ title: "The rent adjustment object"
   The reference to the adjustee in the rent adjustment plan
 </ResponseField>
 
-<ResponseField name="nextAdjustmentDate" type="date">
+<ResponseField name="balanceChargeType" type="nullable string">
+  The type of the balance charge adjusted by the rent adjustment (if applicable)
+</ResponseField>
+
+<ResponseField name="nextAdjustmentDate" type="nullable date">
   The next adjustment date in ISO 8601 format (if applicable)
 </ResponseField>
 
+<ResponseField name="cancelledOn" type="nullable date">
+  The rent adjustment cancellation date in ISO 8601 format (if applicable)
+</ResponseField>
+
+<ResponseField name="endedOn" type="nullable date">
+  The rent adjustment end date in ISO 8601 format (if applicable)
+</ResponseField>
+
+<ResponseField name="cancelledOrEndedOn" type="nullable date">
+  The rent adjustment cancellation date or end date, in ISO 8601 format (if applicable)
+</ResponseField>
+
 <ResponseField name="adjustsRecurringBillItem" type="boolean">
-  Indicator whether the plan adjusts a recurring bill item
+      Indicator whether the plan adjusts a recurring bill item
 </ResponseField>
 
 <ResponseField name="adjustsBalance" type="boolean">
-  Indicator whether the plan adjusts a balance
+      Indicator whether the plan adjusts a balance
+</ResponseField>
+
+<ResponseField name="vat" type="nullable VAT Object">
+  The VAT setting for the rent adjustment
+
+  <Expandable title="properties of VAT Object">
+
+    <ResponseField name="taxMode" type="string">
+      The tax mode for the VAT (e.g., "Exempt", "Exclusive")
+    </ResponseField>
+
+    <ResponseField name="taxRate" type="nullable number">
+      The tax rate for the VAT (e.g., 0.25)
+    </ResponseField>
+
+  </Expandable>
 </ResponseField>
 
 <ResponseField name="rentAdjustmentRules" type="Array of Rent Adjustment Rule Objects">
-  <Expandable title="properties of Rent Adjustment Rule Objects">
+  <Expandable title="properties of Rent Adjustment Rule Object">
 
     <ResponseField name="id" type="string">
       The unique identifier for the rent adjustment rule
@@ -52,18 +84,65 @@ title: "The rent adjustment object"
     </ResponseField>
 
     <ResponseField name="firstYear" type="string">
-      The first year the adjustment is applicable
+      The first year of the adjustment rule
     </ResponseField>
 
-    <ResponseField name="indexMonth" type="integer">
-      The month of the index used for the adjustment
+    <ResponseField name="lastYear" type="nullable string">
+      The last year of the rent adjustment rule
+    </ResponseField>
+
+    <ResponseField name="indexMonth" type="nullable integer">
+      The month of the index used for the adjustment (if applicable)
+    </ResponseField>
+
+    <ResponseField name="minimumPercentage" type="nullable number">
+      The minimum percentage used for the adjustment (if applicable)
+    </ResponseField>
+
+    <ResponseField name="maximumPercentage" type="nullable number">
+      The maximum percentage used for the adjustment (if applicable)
+    </ResponseField>
+
+    <ResponseField name="increments" type="nullable Array of Increment Objects">
+      The increments used for the adjustment year by year
+      <Expandable title="properties of Increment Object">
+
+          <ResponseField name="year" type="string">
+             The year when the increment occurs
+          </ResponseField>
+
+          <ResponseField name="amount" type="nullable Amount Object">
+             The amount used for the increment
+
+             <Expandable title="properties of Amount Object">
+
+               <ResponseField name="currency" type="string">
+                 The currency code for the increment amount (e.g., "DKK")
+               </ResponseField>
+
+               <ResponseField name="amount" type="number">
+                 The amount of the increment amount (e.g., 100.00)
+               </ResponseField>
+
+             </Expandable>
+          </ResponseField>
+
+          <ResponseField name="percentage" type="nullable number">
+            The percentage used for the increment
+          </ResponseField>
+
+          <ResponseField name="recurrence" type="string">
+            The recurrence of the increment (e.g., "Recurring", "OneTime")
+          </ResponseField>
+
+      </Expandable>
     </ResponseField>
 
   </Expandable>
 </ResponseField>
 
 <ResponseField name="adjustments" type="Array of Adjustment Objects">
-  <Expandable title="properties of Adjustment Objects">
+  <Expandable title="properties of Adjustment Object">
 
     <ResponseField name="id" type="string">
       The unique identifier for the adjustment
@@ -77,32 +156,333 @@ title: "The rent adjustment object"
       The year the adjustment is applicable
     </ResponseField>
 
-    <ResponseField name="fromYearlyAmount" type="Amount Object">
-      The yearly amount before the adjustment
+    <ResponseField name="fromYearlyAmount" type="nullable Amount Object">
+       The from yearly amount used for the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the from yearly amount (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the from yearly amount (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
     </ResponseField>
 
-    <ResponseField name="toYearlyAmount" type="Amount Object">
-      The yearly amount after the adjustment
+    <ResponseField name="toYearlyAmount" type="nullable Amount Object">
+       The to yearly amount used for the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the to yearly amount (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the to yearly amount (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
     </ResponseField>
 
-    <ResponseField name="yearlyAmountChange" type="Amount Object">
-      The change in the yearly amount due to the adjustment
+    <ResponseField name="yearlyAmountChange" type="nullable Amount Object">
+       The yearly amount change of the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the yearly amount change (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the yearly amount change (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
     </ResponseField>
 
-    <ResponseField name="fromPeriodAmount" type="Amount Object">
-      The period amount before the adjustment
+    <ResponseField name="periodAmountChange" type="nullable Amount Object">
+       The period amount change of the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the period amount change (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the period amount change (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
     </ResponseField>
 
-    <ResponseField name="toPeriodAmount" type="Amount Object">
-      The period amount after the adjustment
+    <ResponseField name="fromPeriodAmount" type="nullable Amount Object">
+       The from period amount of the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the from period amount (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the from period amount (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
     </ResponseField>
 
-    <ResponseField name="periodAmountChange" type="Amount Object">
-      The change in the period amount due to the adjustment
+    <ResponseField name="toPeriodAmount" type="nullable Amount Object">
+       The to period amount of the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the to period amount (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the to period amount (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
+    </ResponseField>
+
+    <ResponseField name="fromBalanceAmount" type="nullable Amount Object">
+       The from balance amount of the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the from balance amount (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the from balance amount (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
+    </ResponseField>
+
+    <ResponseField name="toBalanceAmount" type="nullable Amount Object">
+       The to balance amount of the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the to balance amount (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the to balance amount (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
+    </ResponseField>
+
+    <ResponseField name="balanceAmountChange" type="nullable Amount Object">
+       The balance amount change of the rent adjustment (if applicable)
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the balance amount change (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the balance amount change (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
     </ResponseField>
 
     <ResponseField name="adjustmentRulesEffects" type="Array of Adjustment Rules Effect Objects">
+
+      <Expandable title="properties of Adjustment Rules Effect Object">
+
+        <ResponseField name="rentAdjustmentRuleId" type="string">
+          The unique identifier for the corresponding rent adjustment rule
+        </ResponseField>
+
+        <ResponseField name="calculatedPercentage" type="nullable number">
+          The calculated adjustment percentage (if applicable)
+        </ResponseField>
+
+        <ResponseField name="fromIndex" type="nullable number">
+          The from index used to calculate the percentage (if applicable)
+        </ResponseField>
+
+        <ResponseField name="toIndex" type="nullable number">
+          The to index used to calculate the percentage (if applicable)
+        </ResponseField>
+
+        <ResponseField name="fromYearMonth" type="nullable string">
+          The from year and month used to calculate the percentage (if applicable)
+        </ResponseField>
+
+        <ResponseField name="toYearMonth" type="nullable string">
+          The to year and month used to calculate the percentage (if applicable)
+        </ResponseField>
+
+        <ResponseField name="fromYearlyAmount" type="nullable Amount Object">
+           The from yearly amount used for the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the from yearly amount (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the from yearly amount (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="toYearlyAmount" type="nullable Amount Object">
+           The to yearly amount used for the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the to yearly amount (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the to yearly amount (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="yearlyAmountChange" type="nullable Amount Object">
+           The yearly amount change of the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the yearly amount change (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the yearly amount change (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="periodAmountChange" type="nullable Amount Object">
+           The period amount change of the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the period amount change (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the period amount change (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="fromPeriodAmount" type="nullable Amount Object">
+           The from period amount of the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the from period amount (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the from period amount (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="toPeriodAmount" type="nullable Amount Object">
+           The to period amount of the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the to period amount (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the to period amount (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="fromBalanceAmount" type="nullable Amount Object">
+           The from balance amount of the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the from balance amount (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the from balance amount (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="toBalanceAmount" type="nullable Amount Object">
+           The to balance amount of the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the to balance amount (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the to balance amount (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="balanceAmountChange" type="nullable Amount Object">
+           The balance amount change of the rent adjustment rule (if applicable)
+
+           <Expandable title="properties of Amount Object">
+
+             <ResponseField name="currency" type="string">
+               The currency code for the balance amount change (e.g., "DKK")
+             </ResponseField>
+
+             <ResponseField name="amount" type="number">
+               The amount of the balance amount change (e.g., 100.00)
+             </ResponseField>
+
+           </Expandable>
+        </ResponseField>
+
+        <ResponseField name="minimumPercentage" type="nullable number">
+          The minimum percentage used for the adjustment rule (if applicable)
+        </ResponseField>
+
+        <ResponseField name="maximumPercentage" type="nullable number">
+          The maximum percentage used for the adjustment rule (if applicable)
+        </ResponseField>
+      </Expandable>
     </ResponseField>
 
   </Expandable>
+
 </ResponseField>
+

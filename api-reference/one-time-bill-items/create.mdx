@@ -14,16 +14,28 @@ api: "POST /one-time-bill-items"
   <Expandable title="properties of Billing Cycle Object">
 
      <ParamField body="productKey" type="string" required>
-       The key or identifier for the product or service billed (e.g. "key:rent")
+       The key or identifier for the product or service billed (e.g., "key:rent")
      </ParamField>
 
      <ParamField body="description" type="string">
        The content of the description that is going to be put on the bill
      </ParamField>
 
-     <ParamField body="amount" type="string" required>
-        The amount charged for the one-time bill item (e.g. "DKK 100")
+     <ParamField body="amount" type="Amount Object" required>
+        The amount charged for the one-time bill item
+        <Expandable title="properties of Amount Object">
+
+          <ParamField body="currency" type="string" required>
+            The currency code for the one-time bill item amount (e.g., "DKK")
+          </ParamField>
+
+          <ParamField body="amount" type="number" required>
+            The amount of the one-time bill item amount (e.g., 100.00)
+          </ParamField>
+
+        </Expandable>
      </ParamField>
+
 
      <ParamField body="dueDate" type="date" required>
        The date in ISO 8601 format that one-time bill item is due
@@ -33,17 +45,17 @@ api: "POST /one-time-bill-items"
        The accounting period for the one-time bill item, in the format "YYYY-MM-DD/YYYY-MM-DD"
      </ParamField>
 
-     <ParamField body="vat" type="VAT Object">
+     <ParamField body="vat" type="VAT Object" required>
        The VAT details for the one-time bill item
 
        <Expandable title="properties of VAT Object">
 
-         <ParamField body="taxMode" type="string">
-           The tax mode for the VAT (e.g. "Exempt", "Exclusive")
+         <ParamField body="taxMode" type="string" required>
+           The tax mode for the VAT (e.g., "Exempt", "Exclusive")
          </ParamField>
 
          <ParamField body="taxRate" type="number">
-           The tax rate for the VAT (e.g. 0.25) (if applicable)
+           The tax rate for the VAT (e.g., 0.25)
          </ParamField>
 
        </Expandable>

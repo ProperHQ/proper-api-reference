@@ -1,0 +1,63 @@
+---
+title: "Creates a tenancy"
+api: "POST /tenancies"
+---
+
+### Params
+
+<ParamField body="purpose" type="string" required>
+  The purpose of the lease (e.g., "key:residential")
+</ParamField>
+
+<ParamField body="address" type="Address Object" required>
+  The address details of the tenancy
+  <Expandable title="properties">
+
+    <ParamField body="streetName" type="string" required>
+      The name of the street
+    </ParamField>
+
+    <ParamField body="streetNumber" type="string" required>
+      The number of the property on the street
+    </ParamField>
+
+    <ParamField body="postalCode" type="string" required>
+      The postal code for the address
+    </ParamField>
+
+    <ParamField body="city" type="string" required>
+      The city of the address
+    </ParamField>
+
+    <ParamField body="country" type="string" required>
+      The country code of the address
+    </ParamField>
+
+    <ParamField body="floor" type="string">
+      The floor of the address if applicable
+    </ParamField>
+
+    <ParamField body="door" type="string">
+      The door of the address if applicable
+    </ParamField>
+
+    <ParamField body="subdivision" type="string">
+      The subdivision of the address if applicable
+    </ParamField>
+
+    <ParamField body="co" type="string">
+      The c/o for the address if applicable
+    </ParamField>
+
+  </Expandable>
+</ParamField>
+
+### Response
+
+<ResponseField name="tenancyId" type="string">
+  The unique identifier for the created tenancy
+</ResponseField>
+
+<ResponseField name="leaseId" type="string">
+  The unique identifier for the draft lease created for the tenancy
+</ResponseField>
