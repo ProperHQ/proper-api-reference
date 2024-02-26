@@ -21,8 +21,19 @@ api: "POST /recurring-bill-items"
       The content of the description that is going to be put on the bill
     </ParamField>
 
-    <ParamField body="amount" type="string" required>
-      The amount charged for the recurring bill item (e.g. "DKK 100")
+    <ParamField body="amount" type="Amount Object" required>
+       The amount charged for the recurring bill item
+       <Expandable title="properties of Amount Object">
+
+         <ParamField body="currency" type="string" required>
+           The currency code for the recurring bill item amount (e.g. "DKK")
+         </ParamField>
+
+         <ParamField body="amount" type="number" required>
+           The amount of the recurring bill item amount (e.g. 100.00)
+         </ParamField>
+
+       </Expandable>
     </ParamField>
 
     <ParamField body="vat" type="VAT Object" required>
@@ -79,8 +90,19 @@ api: "POST /recurring-bill-items"
 
         <Expandable>
 
-            <ParamField body="amount" type="string" required>
-              The amount charged for the first billing period recurring bill item (e.g. "DKK 100")
+            <ParamField body="amount" type="Amount Object" required>
+                The amount charged for the first billing period recurring bill item
+                <Expandable title="properties of Amount Object">
+
+                  <ParamField body="currency" type="string" required>
+                    The currency code for the first billing period recurring bill item amount (e.g. "DKK")
+                  </ParamField>
+
+                  <ParamField body="amount" type="number" required>
+                    The amount of the first billing period recurring bill item amount (e.g. 100.00)
+                  </ParamField>
+
+                </Expandable>
             </ParamField>
 
             <ParamField body="dueDate" type="date" required>
@@ -100,13 +122,24 @@ api: "POST /recurring-bill-items"
 
       <Expandable>
 
-        <ParamField body="amount" type="string">
-          The amount that is going to be subtracted from recurring bill item amount (e.g. "DKK 100")
-          Either this or "percentage" is required
+        <ParamField body="amount" type="Amount Object">
+            The amount that is going to be subtracted from the recurring bill item amount
+            Either this or "percentage" is required
+            <Expandable title="properties of Amount Object">
+
+              <ParamField body="currency" type="string">
+                The currency code for the amount subtracted from the recurring bill item amount (e.g. "DKK")
+              </ParamField>
+
+              <ParamField body="amount" type="number">
+                The amount subtracted from the recurring bill item amount (e.g. 100.00)
+              </ParamField>
+
+            </Expandable>
         </ParamField>
 
         <ParamField body="percentage" type="number">
-          The percentage of from recurring bill item amount that is going to be subtracted (e.g. 0.10)
+          The percentage of the recurring bill item amount that is going to be subtracted (e.g. 0.10)
           Either this or "amount" is required
         </ParamField>
 
