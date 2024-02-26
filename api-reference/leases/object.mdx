@@ -40,9 +40,9 @@ title: "The lease object"
   The identifier for the billing contact
 </ResponseField>
 
-<ResponseField name="balance" type="Balance Object">
+<ResponseField name="balance" type="Amount Object">
   The balance details for the lease
-  <Expandable title="properties of Balance Object">
+  <Expandable title="properties of Amount Object">
 
     <ResponseField name="currency" type="string">
       The currency code for the balance (e.g., "DKK")
@@ -55,9 +55,9 @@ title: "The lease object"
   </Expandable>
 </ResponseField>
 
-<ResponseField name="depositBalance" type="Deposit Balance Object">
+<ResponseField name="depositBalance" type="Amount Object">
   The deposit balance details for the lease
-  <Expandable title="properties of Deposit Balance Object">
+  <Expandable title="properties of Amount Object">
 
     <ResponseField name="currency" type="string">
       The currency code for the deposit balance (e.g., "DKK")
@@ -70,9 +70,9 @@ title: "The lease object"
   </Expandable>
 </ResponseField>
 
-<ResponseField name="prepaidBalance" type="Prepaid Balance Object">
+<ResponseField name="prepaidBalance" type="Amount Object">
   The prepaid balance details for the lease
-  <Expandable title="properties of Prepaid Balance Object">
+  <Expandable title="properties of Amount Object">
 
     <ResponseField name="currency" type="string">
       The currency code for the prepaid balance (e.g., "DKK")
@@ -97,9 +97,9 @@ title: "The lease object"
   The purpose of the lease (e.g., "key:residential")
 </ResponseField>
 
-<ResponseField name="monthlyRentLevel" type="nullable Monthly Rent Level Object">
+<ResponseField name="monthlyRentLevel" type="nullable Amount Object">
   The monthly rent level details for the lease
-  <Expandable title="properties of Monthly Rent Level Object">
+  <Expandable title="properties of Amount Object">
 
     <ResponseField name="currency" type="string">
       The currency code for the monthly rent level (e.g., "DKK")
