@@ -11,14 +11,17 @@ api: "GET /contacts/{contactId}"
 
 ### Response
 
-<ResponseField name="id" type="string">
-  The unique identifier for the contact.
-</ResponseField>
+<ResponseField name="contact" type="Contact Object">
+  Contact details
+  <ResponseField name="id" type="string">
+    The unique identifier for the contact
+  </ResponseField>
 
-<ResponseField name="name" type="string">
-  The name of the contact.
-</ResponseField>
+  <ResponseField name="name" type="string">
+    The name of the contact
+  </ResponseField>
 
-<ResponseField name="email" type="string">
-  The email address of the contact.
+  <ResponseField name="email" type="string">
+    The email address of the contact
+  </ResponseField>
 </ResponseField>
