@@ -8,6 +8,10 @@ title: "The products object"
   The key or identifier for the product
 </ResponseField>
 
+<ResponseField name="productId" type="nullable string">
+  The unique identifier for the product (if applicable)
+</ResponseField>
+
 <ResponseField name="productName" type="Localised String Object">
   The name of the product in different languages
   <Expandable title="properties">
@@ -45,8 +49,4 @@ title: "The products object"
 
 <ResponseField name="isDefaultProduct" type="boolean">
   Indicator whether the product is a default product
-</ResponseField>
-
-<ResponseField name="productId" type="string">
-  The unique identifier for the product (if applicable)
 </ResponseField>

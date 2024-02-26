@@ -9,8 +9,8 @@ This request supports pagination.
 
 ### Response
 
-<ResponseField name="leases" type="Array of lease objects">
-  <Expandable title="properties of lease objects">
+<ResponseField name="leases" type="Array of Lease Objects">
+  <Expandable title="properties of Lease Object">
 
     <ResponseField name="id" type="string">
       The unique identifier for the lease
@@ -24,11 +24,11 @@ This request supports pagination.
       The operational state of the lease (e.g., "Draft")
     </ResponseField>
 
-    <ResponseField name="contractPeriodState" type="string">
+    <ResponseField name="contractPeriodState" type="nullable string">
       The state of the contract period (e.g., "Active")
     </ResponseField>
 
-    <ResponseField name="primaryTenantContactName" type="string">
+    <ResponseField name="primaryTenantContactName" type="nullable string">
       The name of the primary tenant contact
     </ResponseField>
 
@@ -40,11 +40,11 @@ This request supports pagination.
       The identifiers for the associated contacts
     </ResponseField>
 
-    <ResponseField name="primaryTenantId" type="string">
+    <ResponseField name="primaryTenantId" type="nullable string">
       The identifier for the primary tenant
     </ResponseField>
 
-    <ResponseField name="billingContactId" type="string">
+    <ResponseField name="billingContactId" type="nullable string">
       The identifier for the billing contact
     </ResponseField>
 
@@ -93,19 +93,19 @@ This request supports pagination.
       </Expandable>
     </ResponseField>
 
-    <ResponseField name="contractStart" type="date">
+    <ResponseField name="contractStart" type="nullable date">
       The start date of the contract in ISO 8601 format
     </ResponseField>
 
-    <ResponseField name="contractEnd" type="date">
+    <ResponseField name="contractEnd" type="nullable date">
       The end date of the contract in ISO 8601 format
     </ResponseField>
 
-    <ResponseField name="purpose" type="string">
+    <ResponseField name="purpose" type="nullable string">
       The purpose of the lease (e.g., "key:residential")
     </ResponseField>
 
-    <ResponseField name="monthlyRentLevel" type="Monthly Rent Level Object">
+    <ResponseField name="monthlyRentLevel" type="nullable Monthly Rent Level Object">
       The monthly rent level details for the lease
       <Expandable title="properties of Monthly Rent Level Object">
 
@@ -122,7 +122,7 @@ This request supports pagination.
 
   </Expandable>
 
-    <ResponseField name="archivedAt" type="datetime">
+    <ResponseField name="archivedAt" type="nullable datetime">
       The date-time in ISO 8601 format of archiving the lease
     </ResponseField>
 </ResponseField>

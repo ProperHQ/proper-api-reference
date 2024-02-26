@@ -37,7 +37,7 @@ This request supports pagination.
     </ResponseField>
 
     <ResponseField name="billLineItems" type="Array of Bill Line Item Objects">
-      <Expandable title="properties of Bill Line Item Objects">
+      <Expandable title="properties of Bill Line Item Object">
 
         <ResponseField name="id" type="string">
           The unique identifier for the bill line item
@@ -64,6 +64,7 @@ This request supports pagination.
 
         <ResponseField name="productName" type="Localised String Object">
           The name of the product or service in different languages
+
           <Expandable title="properties">
 
             <ResponseField name="en" type="string">
@@ -87,14 +88,15 @@ This request supports pagination.
 
         <ResponseField name="vat" type="VAT Object">
           The VAT details for the bill line item
+
           <Expandable title="properties of VAT Object">
 
             <ResponseField name="taxMode" type="string">
               The tax mode for the VAT (e.g., "Exempt")
             </ResponseField>
 
-            <ResponseField name="taxRate" type="number">
-              The tax rate for the VAT (e.g., 0.25) (if applicable)
+            <ResponseField name="taxRate" type="nullable number">
+              The tax rate for the VAT (e.g., 0.25)
             </ResponseField>
 
           </Expandable>
@@ -137,7 +139,7 @@ This request supports pagination.
       </Expandable>
     </ResponseField>
 
-    <ResponseField name="vatTotals" type="Array">
+    <ResponseField name="vatTotals" type="Array of VAT Total Objects">
       The total VAT amounts for the bill, split by different VAT rates or categories
       <Expandable title="properties of VAT Total Object">
 
@@ -149,8 +151,8 @@ This request supports pagination.
               The tax mode for the VAT (e.g., "Exempt")
             </ResponseField>
 
-            <ResponseField name="taxRate" type="number">
-              The tax rate for the VAT (e.g., 0.25) (if applicable)
+            <ResponseField name="taxRate" type="nullable number">
+              The tax rate for the VAT (e.g., 0.25)
             </ResponseField>
 
           </Expandable>
@@ -174,19 +176,19 @@ This request supports pagination.
       </Expandable>
     </ResponseField>
 
-    <ResponseField name="postedOn" type="date">
+    <ResponseField name="postedOn" type="nullable date">
       The date in ISO 8601 format when bill was posted
     </ResponseField>
 
-    <ResponseField name="annulledOn" type="date">
+    <ResponseField name="annulledOn" type="nullable date">
       The date in ISO 8601 format when bill was annulled
     </ResponseField>
 
-    <ResponseField name="invoiceNumber" type="long">
+    <ResponseField name="invoiceNumber" type="nullable long">
       The number of the invoice corresponding to the bill
     </ResponseField>
 
-    <ResponseField name="creditNoteNumber" type="long">
+    <ResponseField name="creditNoteNumber" type="nullable long">
       The number of the credit note corresponding to the bill
     </ResponseField>
 

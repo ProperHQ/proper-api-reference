@@ -7,17 +7,16 @@ api: "GET /payouts"
 
 This request supports pagination.
 
-
 ### Response
 
-<ResponseField name="payouts" type="Array of Payout Object">
-  <Expandable title="properties of Payout Objects">
+<ResponseField name="payouts" type="Array of Payout Objects">
+  <Expandable title="properties of Payout Object">
 
     <ResponseField name="id" type="string">
       The unique identifier for the payout
     </ResponseField>
 
-    <ResponseField name="payoutReason" type="string">
+    <ResponseField name="payoutReason" type="nullable string">
       The reason for the payout. Can be either Payment or Refund
     </ResponseField>
 
@@ -73,7 +72,7 @@ This request supports pagination.
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="bankStatement" type="string">
+    <ResponseField name="bankStatement" type="nullable string">
       The bank statement reference for the payout
     </ResponseField>
 

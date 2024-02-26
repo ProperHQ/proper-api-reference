@@ -14,7 +14,9 @@ This request supports pagination.
 ### Response
 
 <ResponseField name="recurringBillItems" type="Array of Recurring Bill Item Objects">
+
   <Expandable title="properties of Recurring Bill Item Object">
+
     <ResponseField name="id" type="string">
       The unique identifier for the recurring bill item
     </ResponseField>
@@ -43,15 +45,16 @@ This request supports pagination.
       First due date for the recurring bill item in ISO 8601 format
     </ResponseField>
 
-    <ResponseField name="cancelledOn" type="boolean">
-      The date in ISO 8601 format on which recurring bill item is stopped from being billed (if applicable)
+    <ResponseField name="cancelledOn" type="nullable boolean">
+      The date in ISO 8601 format on which recurring bill item is stopped from being billed
     </ResponseField>
 
     <ResponseField name="endedOn" type="boolean">
-      The date in ISO 8601 format on which recurring bill item ends billing (if applicable)
+      The date in ISO 8601 format on which recurring bill item ends billing
     </ResponseField>
 
     <ResponseField name="billingCycle" type="Billing Cycle Object">
+
       <Expandable title="properties of Billing Cycle Object">
 
         <ResponseField name="timeUnit" type="string">
@@ -67,9 +70,11 @@ This request supports pagination.
         </ResponseField>
 
       </Expandable>
+
     </ResponseField>
 
     <ResponseField name="amountRecords" type="Array of Amount Record Objects">
+
       <Expandable title="properties of Amount Record Object">
 
         <ResponseField name="id" type="string">
@@ -97,13 +102,15 @@ This request supports pagination.
         </ResponseField>
 
       </Expandable>
+
     </ResponseField>
 
-    <ResponseField name="vatRecords" type="Array of Vat Record Objects">
-      <Expandable title="properties of Vat Record Object">
+    <ResponseField name="vatRecords" type="Array of VAT Record Objects">
+
+      <Expandable title="properties of VAT Record Object">
 
         <ResponseField name="id" type="string">
-          The unique identifier for the VAT record
+          The unique identifier for the VAT Record
         </ResponseField>
 
         <ResponseField name="value" type="VAT Object">
@@ -115,8 +122,8 @@ This request supports pagination.
               The tax mode for the VAT (e.g., "Exempt", "Exclusive")
             </ResponseField>
 
-            <ResponseField name="taxRate" type="number">
-              The tax rate for the VAT (e.g., 0.25) (if applicable)
+            <ResponseField name="taxRate" type="nullable number">
+              The tax rate for the VAT (e.g., 0.25)
             </ResponseField>
 
           </Expandable>
@@ -127,9 +134,11 @@ This request supports pagination.
         </ResponseField>
 
       </Expandable>
+
     </ResponseField>
 
     <ResponseField name="descriptionRecords" type="Array of Description Record Objects">
+
       <Expandable title="properties of Description Record Object">
 
         <ResponseField name="id" type="string">
@@ -145,6 +154,9 @@ This request supports pagination.
         </ResponseField>
 
       </Expandable>
+
     </ResponseField>
+
   </Expandable>
+
 </ResponseField>

@@ -1,5 +1,5 @@
 ---
-title: "The recurring bill item object"
+titlThe recurring bill item object"
 ---
 
 ### Attributes
@@ -32,15 +32,16 @@ title: "The recurring bill item object"
   First due date for the recurring bill item in ISO 8601 format
 </ResponseField>
 
-<ResponseField name="cancelledOn" type="boolean">
-  The date in ISO 8601 format on which recurring bill item is stopped from being billed (if applicable)
+<ResponseField name="cancelledOn" type="nullable boolean">
+  The date in ISO 8601 format on which recurring bill item is stopped from being billed
 </ResponseField>
 
 <ResponseField name="endedOn" type="boolean">
-  The date in ISO 8601 format on which recurring bill item ends billing (if applicable)
+  The date in ISO 8601 format on which recurring bill item ends billing
 </ResponseField>
 
 <ResponseField name="billingCycle" type="Billing Cycle Object">
+
   <Expandable title="properties of Billing Cycle Object">
 
     <ResponseField name="timeUnit" type="string">
@@ -56,17 +57,31 @@ title: "The recurring bill item object"
     </ResponseField>
 
   </Expandable>
+
 </ResponseField>
 
 <ResponseField name="amountRecords" type="Array of Amount Record Objects">
+
   <Expandable title="properties of Amount Record Object">
 
     <ResponseField name="id" type="string">
       The unique identifier for the amount record
     </ResponseField>
 
-    <ResponseField name="value" type="string">
-      The amount charged for the recurring bill item (e.g., "DKK 100")
+    <ResponseField name="value" type="Amount Object">
+       The amount charged for the recurring bill item
+
+       <Expandable title="properties of Amount Object">
+
+         <ResponseField name="currency" type="string">
+           The currency code for the recurring bill item amount (e.g., "DKK")
+         </ResponseField>
+
+         <ResponseField name="amount" type="number">
+           The amount of the recurring bill item amount (e.g., 100.00)
+         </ResponseField>
+
+       </Expandable>
     </ResponseField>
 
     <ResponseField name="start" type="date">
@@ -74,13 +89,15 @@ title: "The recurring bill item object"
     </ResponseField>
 
   </Expandable>
+
 </ResponseField>
 
-<ResponseField name="vatRecords" type="Array of Vat Record Objects">
-  <Expandable title="properties of Vat Record Object">
+<ResponseField name="vatRecords" type="Array of VAT Record Objects">
+
+  <Expandable title="properties of VAT Record Object">
 
     <ResponseField name="id" type="string">
-      The unique identifier for the VAT record
+      The unique identifier for the VAT Record
     </ResponseField>
 
     <ResponseField name="value" type="VAT Object">
@@ -92,8 +109,8 @@ title: "The recurring bill item object"
           The tax mode for the VAT (e.g., "Exempt", "Exclusive")
         </ResponseField>
 
-        <ResponseField name="taxRate" type="number">
-          The tax rate for the VAT (e.g., 0.25) (if applicable)
+        <ResponseField name="taxRate" type="nullable number">
+          The tax rate for the VAT (e.g., 0.25)
         </ResponseField>
 
       </Expandable>
@@ -104,9 +121,11 @@ title: "The recurring bill item object"
     </ResponseField>
 
   </Expandable>
+
 </ResponseField>
 
 <ResponseField name="descriptionRecords" type="Array of Description Record Objects">
+
   <Expandable title="properties of Description Record Object">
 
     <ResponseField name="id" type="string">
@@ -122,4 +141,5 @@ title: "The recurring bill item object"
     </ResponseField>
 
   </Expandable>
+
 </ResponseField>

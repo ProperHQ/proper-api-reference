@@ -9,9 +9,9 @@ api: "POST /recurring-bill-items"
   The lease for which recurring bill items will be created
 </ParamField>
 
-<ParamField body="recurringBillItem" type="Recurring Bill Item" required>
+<ParamField body="recurringBillItem" type="Recurring Bill Item Object" required>
 
-  <Expandable title="properties of Billing Cycle Object">
+  <Expandable title="properties of Recurring Bill Item Object">
 
     <ParamField body="productKey" type="string" required>
       The key or identifier for the product or service billed (e.g., "key:rent")
@@ -46,7 +46,7 @@ api: "POST /recurring-bill-items"
         </ParamField>
 
         <ParamField body="taxRate" type="number">
-          The tax rate for the VAT (e.g., 0.25) (if applicable)
+          The tax rate for the VAT (e.g., 0.25)
         </ParamField>
 
       </Expandable>

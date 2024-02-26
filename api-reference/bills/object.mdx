@@ -33,7 +33,7 @@ Proper will email the bills to your customer and await payment. These emails inc
 </ResponseField>
 
 <ResponseField name="billLineItems" type="Array of Bill Line Item Objects">
-  <Expandable title="properties of Bill Line Item Objects">
+  <Expandable title="properties of Bill Line Item Object">
 
     <ResponseField name="id" type="string">
       The unique identifier for the bill line item
@@ -60,6 +60,7 @@ Proper will email the bills to your customer and await payment. These emails inc
 
     <ResponseField name="productName" type="Localised String Object">
       The name of the product or service in different languages
+
       <Expandable title="properties">
 
         <ResponseField name="en" type="string">
@@ -83,21 +84,26 @@ Proper will email the bills to your customer and await payment. These emails inc
 
     <ResponseField name="vat" type="VAT Object">
       The VAT details for the bill line item
+
       <Expandable title="properties of VAT Object">
 
         <ResponseField name="taxMode" type="string">
           The tax mode for the VAT (e.g., "Exempt")
         </ResponseField>
 
+        <ResponseField name="taxRate" type="nullable number">
+          The tax rate for the VAT (e.g., 0.25)
+        </ResponseField>
+
+          </Expandable>
+        </ResponseField>
+
+        <ResponseField name="accountingPeriod" type="string">
+          The accounting period for the bill line item, in the format "YYYY-MM-DD/YYYY-MM-DD"
+        </ResponseField>
+
       </Expandable>
     </ResponseField>
-
-    <ResponseField name="accountingPeriod" type="string">
-      The accounting period for the bill line item, in the format "YYYY-MM-DD/YYYY-MM-DD"
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
 
 <ResponseField name="subtotal" type="Amount Object">
   The subtotal amount for the bill
@@ -129,6 +135,55 @@ Proper will email the bills to your customer and await payment. These emails inc
   </Expandable>
 </ResponseField>
 
-<ResponseField name="vatTotals" type="Array">
+<ResponseField name="vatTotals" type="Array of VAT Total Objects">
   The total VAT amounts for the bill, split by different VAT rates or categories
+  <Expandable title="properties of VAT Total Object">
+
+    <ResponseField name="vat" type="VAT Object">
+      The VAT details for the bill line item
+      <Expandable title="properties of VAT Object">
+
+        <ResponseField name="taxMode" type="string">
+          The tax mode for the VAT (e.g., "Exempt")
+        </ResponseField>
+
+        <ResponseField name="taxRate" type="nullable number">
+          The tax rate for the VAT (e.g., 0.25)
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="amount" type="Amount Object">
+      The total amount for the VAT category
+      <Expandable title="properties of Amount Object">
+
+        <ResponseField name="currency" type="string">
+          The currency code for the amount (e.g., "DKK")
+        </ResponseField>
+
+        <ResponseField name="amount" type="number">
+          The amount
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="postedOn" type="nullable date">
+  The date in ISO 8601 format when bill was posted
+</ResponseField>
+
+<ResponseField name="annulledOn" type="nullable date">
+  The date in ISO 8601 format when bill was annulled
+</ResponseField>
+
+<ResponseField name="invoiceNumber" type="nullable long">
+  The number of the invoice corresponding to the bill
+</ResponseField>
+
+<ResponseField name="creditNoteNumber" type="nullable long">
+  The number of the credit note corresponding to the bill
 </ResponseField>

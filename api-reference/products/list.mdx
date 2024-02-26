@@ -2,21 +2,22 @@
 title: "List products"
 api: "GET /products"
 ---
+
 ### Request
 
 This request supports pagination.
 
-
 ### Response
 
-<ResponseField name="products" type="Array of product objects">
-  <Expandable title="properties of product objects">
+<ResponseField name="products" type="Array of Product Objects">
+
+  <Expandable title="properties of Product Object">
 
     <ResponseField name="productKey" type="string">
       The key or identifier for the product
     </ResponseField>
 
-    <ResponseField name="productId" type="string">
+    <ResponseField name="productId" type="nullable string">
       The unique identifier for the product (if applicable)
     </ResponseField>
 
@@ -60,4 +61,5 @@ This request supports pagination.
     </ResponseField>
 
   </Expandable>
+
 </ResponseField>
