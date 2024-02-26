@@ -3,6 +3,10 @@ title: "List leases"
 api: "GET /leases"
 ---
 
+### Request
+
+This request supports pagination.
+
 ### Response
 
 <ResponseField name="leases" type="Array of lease objects">
@@ -93,6 +97,10 @@ api: "GET /leases"
       The start date of the contract in ISO 8601 format
     </ResponseField>
 
+    <ResponseField name="contractEnd" type="date">
+      The end date of the contract in ISO 8601 format
+    </ResponseField>
+
     <ResponseField name="purpose" type="string">
       The purpose of the lease (e.g., "key:residential")
     </ResponseField>
@@ -113,4 +121,8 @@ api: "GET /leases"
     </ResponseField>
 
   </Expandable>
+
+    <ResponseField name="archivedAt" type="datetime">
+      The date-time in ISO 8601 format of archiving the lease
+    </ResponseField>
 </ResponseField>
