@@ -134,7 +134,8 @@
         {
           "group": "Categories",
           "pages": [
-            "api-reference/categories/object"
+            "api-reference/categories/object",
+            "api-reference/categories/list"
           ]
         }
       ]

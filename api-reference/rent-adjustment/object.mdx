@@ -1,5 +1,5 @@
 ---
-title: "The rent adjustment object"
+title: "The rent adjustment plan object"
 ---
 
 ### Attributes
@@ -84,30 +84,34 @@ title: "The rent adjustment object"
     </ResponseField>
 
     <ResponseField name="firstYear" type="string">
-      The first year the adjustment is applicable
+      The first year of the adjustment rule
     </ResponseField>
 
-    <ResponseField name="indexMonth" type="integer">
-      The month of the index used for the adjustment
+    <ResponseField name="lastYear" type="nullable string">
+      The last year of the rent adjustment rule
     </ResponseField>
 
-    <ResponseField name="minimumPercentage" type="number">
+    <ResponseField name="indexMonth" type="nullable integer">
+      The month of the index used for the adjustment (if applicable)
+    </ResponseField>
+
+    <ResponseField name="minimumPercentage" type="nullable number">
       The minimum percentage used for the adjustment (if applicable)
     </ResponseField>
 
-    <ResponseField name="maximumPercentage" type="number">
+    <ResponseField name="maximumPercentage" type="nullable number">
       The maximum percentage used for the adjustment (if applicable)
     </ResponseField>
 
-    <ResponseField name="increments" type="Array of Increment Objects">
+    <ResponseField name="increments" type="nullable Array of Increment Objects">
       The increments used for the adjustment year by year
       <Expandable title="properties of Increment Object">
 
-          <ResponseField name="year" type="integer">
+          <ResponseField name="year" type="string">
              The year when the increment occurs
           </ResponseField>
 
-          <ResponseField name="amount" type="Amount Object">
+          <ResponseField name="amount" type="nullable Amount Object">
              The amount used for the increment
 
              <Expandable title="properties of Amount Object">
@@ -123,7 +127,7 @@ title: "The rent adjustment object"
              </Expandable>
           </ResponseField>
 
-          <ResponseField name="percentage" type="number">
+          <ResponseField name="percentage" type="nullable number">
             The percentage used for the increment
           </ResponseField>
 
@@ -152,7 +156,7 @@ title: "The rent adjustment object"
       The year the adjustment is applicable
     </ResponseField>
 
-    <ResponseField name="fromYearlyAmount" type="Amount Object">
+    <ResponseField name="fromYearlyAmount" type="nullable Amount Object">
        The from yearly amount used for the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -168,7 +172,7 @@ title: "The rent adjustment object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="toYearlyAmount" type="Amount Object">
+    <ResponseField name="toYearlyAmount" type="nullable Amount Object">
        The to yearly amount used for the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -184,7 +188,7 @@ title: "The rent adjustment object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="yearlyAmountChange" type="Amount Object">
+    <ResponseField name="yearlyAmountChange" type="nullable Amount Object">
        The yearly amount change of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -200,7 +204,7 @@ title: "The rent adjustment object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="periodAmountChange" type="Amount Object">
+    <ResponseField name="periodAmountChange" type="nullable Amount Object">
        The period amount change of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -216,7 +220,7 @@ title: "The rent adjustment object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="fromPeriodAmount" type="Amount Object">
+    <ResponseField name="fromPeriodAmount" type="nullable Amount Object">
        The from period amount of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -232,7 +236,7 @@ title: "The rent adjustment object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="toPeriodAmount" type="Amount Object">
+    <ResponseField name="toPeriodAmount" type="nullable Amount Object">
        The to period amount of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -248,7 +252,7 @@ title: "The rent adjustment object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="fromBalanceAmount" type="Amount Object">
+    <ResponseField name="fromBalanceAmount" type="nullable Amount Object">
        The from balance amount of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -264,7 +268,7 @@ title: "The rent adjustment object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="toBalanceAmount" type="Amount Object">
+    <ResponseField name="toBalanceAmount" type="nullable Amount Object">
        The to balance amount of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -280,7 +284,7 @@ title: "The rent adjustment object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="balanceAmountChange" type="Amount Object">
+    <ResponseField name="balanceAmountChange" type="nullable Amount Object">
        The balance amount change of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -300,7 +304,7 @@ title: "The rent adjustment object"
 
       <Expandable title="properties of Adjustment Rules Effect Object">
 
-        <ResponseField name="id" type="string">
+        <ResponseField name="rentAdjustmentRuleId" type="string">
           The unique identifier for the corresponding rent adjustment rule
         </ResponseField>
 
@@ -480,9 +484,5 @@ title: "The rent adjustment object"
 
   </Expandable>
 
-</ResponseField>
-
-<ResponseField name="cancelledOn" type="nullable date">
-  The date in ISO 8601 format on which recurring bill item is stopped from being billed (if applicable)
 </ResponseField>
 
