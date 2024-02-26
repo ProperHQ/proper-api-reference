@@ -8,7 +8,7 @@ api: "GET /recurring-bill-items"
 This request supports pagination.
 
 <ParamField query="leaseId" type="string">
-  The lease for which recurring bill items will be returned (optional)
+  The lease for which recurring bill items will be returned
 </ParamField>
 
 ### Response
@@ -49,7 +49,7 @@ This request supports pagination.
       The date in ISO 8601 format on which recurring bill item is stopped from being billed
     </ResponseField>
 
-    <ResponseField name="endedOn" type="boolean">
+    <ResponseField name="endedOn" type="nullable date">
       The date in ISO 8601 format on which recurring bill item ends billing
     </ResponseField>
 
