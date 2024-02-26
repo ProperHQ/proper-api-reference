@@ -54,7 +54,8 @@
           "pages": [
             "api-reference/tenancies/object",
             "api-reference/tenancies/list",
-            "api-reference/tenancies/getTenancy"
+            "api-reference/tenancies/getTenancy",
+            "api-reference/tenancies/create"
           ]
         },
         {
