@@ -15,23 +15,23 @@ api: "GET /pending-bills"
 
 ### Response
 
-<ResponseField name="bills" type="Array of Bill Objects">
-  <Expandable title="properties of Bill Objects">
+<ResponseField name="bills" type="array">
+  <Expandable>
 
     <ResponseField name="dueDate" type="date">
       The due date for the pending bill payment in ISO 8601 format
     </ResponseField>
 
-    <ResponseField name="pendingBillLineItems" type="Array of Pending Bill Line Item Objects">
-      <Expandable title="properties of Pending Bill Line Item Object">
+    <ResponseField name="pendingBillLineItems" type="array">
+      <Expandable>
 
         <ResponseField name="productKey" type="string">
           The key or identifier for the product or service billed
         </ResponseField>
 
-        <ResponseField name="amount" type="Amount Object">
+        <ResponseField name="amount" type="array">
           The amount charged for the item
-          <Expandable title="properties of Amount Object">
+          <Expandable>
 
             <ResponseField name="currency" type="string">
               The currency code for the amount (e.g., "DKK")
@@ -44,16 +44,16 @@ api: "GET /pending-bills"
           </Expandable>
         </ResponseField>
 
-        <ResponseField name="vat" type="VAT Object">
+        <ResponseField name="vat" type="object">
           The VAT details for the pending bill line item
 
-          <Expandable title="properties of VAT Object">
+          <Expandable>
 
             <ResponseField name="taxMode" type="string">
               The tax mode for the VAT (e.g., "Exempt")
             </ResponseField>
 
-            <ResponseField name="taxRate" type="nullable number">
+            <ResponseField name="taxRate" type="number">
               The tax rate for the VAT (e.g., 0.25)
             </ResponseField>
 
@@ -67,9 +67,9 @@ api: "GET /pending-bills"
           </Expandable>
         </ResponseField>
 
-    <ResponseField name="subtotal" type="Amount Object">
+    <ResponseField name="subtotal" type="object">
       The subtotal amount for the pending bill
-      <Expandable title="properties of Amount Object">
+      <Expandable>
 
         <ResponseField name="currency" type="string">
           The currency code for the subtotal (e.g., "DKK")
@@ -82,9 +82,9 @@ api: "GET /pending-bills"
       </Expandable>
     </ResponseField>
 
-    <ResponseField name="total" type="Amount Object">
+    <ResponseField name="total" type="object">
       The total amount due for the pending bill
-      <Expandable title="properties of Amount Object">
+      <Expandable>
 
         <ResponseField name="currency" type="string">
           The currency code for the total (e.g., "DKK")
@@ -97,28 +97,28 @@ api: "GET /pending-bills"
       </Expandable>
     </ResponseField>
 
-    <ResponseField name="vatTotals" type="Array of VAT Total Objects">
+    <ResponseField name="vatTotals" type="array">
       The total VAT amounts for the pending bill, split by different VAT rates or categories
-      <Expandable title="properties of VAT Total Object">
+      <Expandable>
 
-        <ResponseField name="vat" type="VAT Object">
+        <ResponseField name="vat" type="object">
           The VAT details for the pending bill line item
-          <Expandable title="properties of VAT Object">
+          <Expandable>
 
             <ResponseField name="taxMode" type="string">
               The tax mode for the VAT (e.g., "Exempt")
             </ResponseField>
 
-            <ResponseField name="taxRate" type="nullable number">
+            <ResponseField name="taxRate" type="number">
               The tax rate for the VAT (e.g., 0.25)
             </ResponseField>
 
           </Expandable>
         </ResponseField>
 
-        <ResponseField name="amount" type="Amount Object">
+        <ResponseField name="amount" type="object">
           The total amount for the VAT category
-          <Expandable title="properties of Amount Object">
+          <Expandable>
 
             <ResponseField name="currency" type="string">
               The currency code for the amount (e.g., "DKK")

@@ -11,22 +11,14 @@ api: "GET /contacts/{contactId}"
 
 ### Response
 
-<ResponseField name="contact" type="Contact Object">
+<ResponseField name="id" type="string">
+  The unique identifier for the contact
+</ResponseField>
 
-  <Expandable title="properties of Contact Object">
+<ResponseField name="name" type="string">
+  The name of the contact
+</ResponseField>
 
-    <ResponseField name="id" type="string">
-      The unique identifier for the contact
-    </ResponseField>
-
-    <ResponseField name="name" type="string">
-      The name of the contact
-    </ResponseField>
-
-    <ResponseField name="email" type="nullable string">
-      The email address of the contact
-    </ResponseField>
-
-  </Expandable>
-
+<ResponseField name="email" type="string">
+  The email address of the contact
 </ResponseField>

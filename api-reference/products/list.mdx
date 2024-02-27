@@ -9,19 +9,19 @@ This request supports pagination.
 
 ### Response
 
-<ResponseField name="products" type="Array of Product Objects">
+<ResponseField name="products" type="array">
 
-  <Expandable title="properties of Product Object">
+  <Expandable>
 
     <ResponseField name="productKey" type="string">
       The key or identifier for the product
     </ResponseField>
 
-    <ResponseField name="productId" type="nullable string">
+    <ResponseField name="productId" type="string">
       The unique identifier for the product (if applicable)
     </ResponseField>
 
-    <ResponseField name="productName" type="Localised String Object">
+    <ResponseField name="productName" type="object">
       The name of the product in different languages
       <Expandable title="properties">
 

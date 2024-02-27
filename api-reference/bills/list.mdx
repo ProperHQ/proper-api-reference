@@ -9,8 +9,8 @@ This request supports pagination.
 
 ### Response
 
-<ResponseField name="bills" type="Array of Bill Objects">
-  <Expandable title="properties of Bill Objects">
+<ResponseField name="bills" type="array">
+  <Expandable>
 
     <ResponseField name="id" type="string">
       The unique identifier for the bill
@@ -20,11 +20,11 @@ This request supports pagination.
       The identifier for the lease associated with the bill
     </ResponseField>
 
-    <ResponseField name="created" type="datetime">
+    <ResponseField name="created" type="date">
       The creation date and time of the bill in ISO 8601 format
     </ResponseField>
 
-    <ResponseField name="modified" type="datetime">
+    <ResponseField name="modified" type="date">
       The last modification date and time of the bill in ISO 8601 format
     </ResponseField>
 
@@ -95,7 +95,7 @@ This request supports pagination.
               The tax mode for the VAT (e.g., "Exempt")
             </ResponseField>
 
-            <ResponseField name="taxRate" type="nullable number">
+            <ResponseField name="taxRate" type="number">
               The tax rate for the VAT (e.g., 0.25)
             </ResponseField>
 
@@ -151,7 +151,7 @@ This request supports pagination.
               The tax mode for the VAT (e.g., "Exempt")
             </ResponseField>
 
-            <ResponseField name="taxRate" type="nullable number">
+            <ResponseField name="taxRate" type="number">
               The tax rate for the VAT (e.g., 0.25)
             </ResponseField>
 
@@ -176,19 +176,19 @@ This request supports pagination.
       </Expandable>
     </ResponseField>
 
-    <ResponseField name="postedOn" type="nullable date">
+    <ResponseField name="postedOn" type="date">
       The date in ISO 8601 format when bill was posted
     </ResponseField>
 
-    <ResponseField name="annulledOn" type="nullable date">
+    <ResponseField name="annulledOn" type="date">
       The date in ISO 8601 format when bill was annulled
     </ResponseField>
 
-    <ResponseField name="invoiceNumber" type="nullable long">
+    <ResponseField name="invoiceNumber" type="long">
       The number of the invoice corresponding to the bill
     </ResponseField>
 
-    <ResponseField name="creditNoteNumber" type="nullable long">
+    <ResponseField name="creditNoteNumber" type="long">
       The number of the credit note corresponding to the bill
     </ResponseField>
 

@@ -13,9 +13,9 @@ This request supports pagination.
 
 ### Response
 
-<ResponseField name="recurringBillItems" type="Array of Recurring Bill Item Objects">
+<ResponseField name="recurringBillItems" type="array">
 
-  <Expandable title="properties of Recurring Bill Item Object">
+  <Expandable>
 
     <ResponseField name="id" type="string">
       The unique identifier for the recurring bill item
@@ -29,11 +29,11 @@ This request supports pagination.
       The identifier for the lease associated with the recurring bill item
     </ResponseField>
 
-    <ResponseField name="created" type="datetime">
+    <ResponseField name="created" type="date">
       The creation date and time of the recurring bill item in ISO 8601 format
     </ResponseField>
 
-    <ResponseField name="modified" type="datetime">
+    <ResponseField name="modified" type="date">
       The last modification date and time of the recurring bill item in ISO 8601 format
     </ResponseField>
 
@@ -45,17 +45,17 @@ This request supports pagination.
       First due date for the recurring bill item in ISO 8601 format
     </ResponseField>
 
-    <ResponseField name="cancelledOn" type="nullable boolean">
+    <ResponseField name="cancelledOn" type="date">
       The date in ISO 8601 format on which recurring bill item is stopped from being billed
     </ResponseField>
 
-    <ResponseField name="endedOn" type="nullable date">
+    <ResponseField name="endedOn" type="date">
       The date in ISO 8601 format on which recurring bill item ends billing
     </ResponseField>
 
-    <ResponseField name="billingCycle" type="Billing Cycle Object">
+    <ResponseField name="billingCycle" type="object">
 
-      <Expandable title="properties of Billing Cycle Object">
+      <Expandable>
 
         <ResponseField name="timeUnit" type="string">
           Time unit based on which the billing cycle is calculated ("Month")
@@ -73,18 +73,18 @@ This request supports pagination.
 
     </ResponseField>
 
-    <ResponseField name="amountRecords" type="Array of Amount Record Objects">
+    <ResponseField name="amountRecords" type="array">
 
-      <Expandable title="properties of Amount Record Object">
+      <Expandable>
 
         <ResponseField name="id" type="string">
           The unique identifier for the amount record
         </ResponseField>
 
-        <ResponseField name="value" type="Amount Object">
+        <ResponseField name="value" type="object">
            The amount charged for the recurring bill item
 
-           <Expandable title="properties of Amount Object">
+           <Expandable>
 
              <ResponseField name="currency" type="string">
                The currency code for the recurring bill item amount (e.g., "DKK")
@@ -105,24 +105,24 @@ This request supports pagination.
 
     </ResponseField>
 
-    <ResponseField name="vatRecords" type="Array of VAT Record Objects">
+    <ResponseField name="vatRecords" type="array">
 
-      <Expandable title="properties of VAT Record Object">
+      <Expandable>
 
         <ResponseField name="id" type="string">
           The unique identifier for the VAT Record
         </ResponseField>
 
-        <ResponseField name="value" type="VAT Object">
+        <ResponseField name="value" type="object">
           The VAT details for the recurring bill item
 
-          <Expandable title="properties of VAT Object">
+          <Expandable>
 
             <ResponseField name="taxMode" type="string">
               The tax mode for the VAT (e.g., "Exempt", "Exclusive")
             </ResponseField>
 
-            <ResponseField name="taxRate" type="nullable number">
+            <ResponseField name="taxRate" type="number">
               The tax rate for the VAT (e.g., 0.25)
             </ResponseField>
 
@@ -137,9 +137,9 @@ This request supports pagination.
 
     </ResponseField>
 
-    <ResponseField name="descriptionRecords" type="Array of Description Record Objects">
+    <ResponseField name="descriptionRecords" type="array">
 
-      <Expandable title="properties of Description Record Object">
+      <Expandable>
 
         <ResponseField name="id" type="string">
           The unique identifier for the description record

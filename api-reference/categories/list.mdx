@@ -9,8 +9,8 @@ This request supports pagination.
 
 ### Response
 
-<ResponseField name="categories" type="Array of Category Objects">
-  <Expandable title="properties of Category Object">
+<ResponseField name="categories" type="array">
+  <Expandable>
 
     <ResponseField name="id" type="string">
       The unique identifier for the category
@@ -20,7 +20,7 @@ This request supports pagination.
       The name of the category
     </ResponseField>
 
-    <ResponseField name="type" type="nullable string">
+    <ResponseField name="type" type="string">
       The type of the category (e.g., "Properties")
     </ResponseField>
 

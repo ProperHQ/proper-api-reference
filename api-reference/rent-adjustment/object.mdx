@@ -12,11 +12,11 @@ title: "The rent adjustment plan object"
   The identifier for the lease associated with the rent adjustment plan
 </ResponseField>
 
-<ResponseField name="created" type="datetime">
+<ResponseField name="created" type="date">
   The creation date and time of the rent adjustment plan in ISO 8601 format
 </ResponseField>
 
-<ResponseField name="modified" type="datetime">
+<ResponseField name="modified" type="date">
   The last modification date and time of the rent adjustment plan in ISO 8601 format
 </ResponseField>
 
@@ -24,23 +24,23 @@ title: "The rent adjustment plan object"
   The reference to the adjustee in the rent adjustment plan
 </ResponseField>
 
-<ResponseField name="balanceChargeType" type="nullable string">
+<ResponseField name="balanceChargeType" type="string">
   The type of the balance charge adjusted by the rent adjustment (if applicable)
 </ResponseField>
 
-<ResponseField name="nextAdjustmentDate" type="nullable date">
+<ResponseField name="nextAdjustmentDate" type="date">
   The next adjustment date in ISO 8601 format (if applicable)
 </ResponseField>
 
-<ResponseField name="cancelledOn" type="nullable date">
+<ResponseField name="cancelledOn" type="date">
   The rent adjustment cancellation date in ISO 8601 format (if applicable)
 </ResponseField>
 
-<ResponseField name="endedOn" type="nullable date">
+<ResponseField name="endedOn" type="date">
   The rent adjustment end date in ISO 8601 format (if applicable)
 </ResponseField>
 
-<ResponseField name="cancelledOrEndedOn" type="nullable date">
+<ResponseField name="cancelledOrEndedOn" type="date">
   The rent adjustment cancellation date or end date, in ISO 8601 format (if applicable)
 </ResponseField>
 
@@ -52,7 +52,7 @@ title: "The rent adjustment plan object"
       Indicator whether the plan adjusts a balance
 </ResponseField>
 
-<ResponseField name="vat" type="nullable VAT Object">
+<ResponseField name="vat" type="VAT Object">
   The VAT setting for the rent adjustment
 
   <Expandable title="properties of VAT Object">
@@ -61,7 +61,7 @@ title: "The rent adjustment plan object"
       The tax mode for the VAT (e.g., "Exempt", "Exclusive")
     </ResponseField>
 
-    <ResponseField name="taxRate" type="nullable number">
+    <ResponseField name="taxRate" type="number">
       The tax rate for the VAT (e.g., 0.25)
     </ResponseField>
 
@@ -87,23 +87,23 @@ title: "The rent adjustment plan object"
       The first year of the adjustment rule
     </ResponseField>
 
-    <ResponseField name="lastYear" type="nullable string">
+    <ResponseField name="lastYear" type="string">
       The last year of the rent adjustment rule
     </ResponseField>
 
-    <ResponseField name="indexMonth" type="nullable integer">
+    <ResponseField name="indexMonth" type="integer">
       The month of the index used for the adjustment (if applicable)
     </ResponseField>
 
-    <ResponseField name="minimumPercentage" type="nullable number">
+    <ResponseField name="minimumPercentage" type="number">
       The minimum percentage used for the adjustment (if applicable)
     </ResponseField>
 
-    <ResponseField name="maximumPercentage" type="nullable number">
+    <ResponseField name="maximumPercentage" type="number">
       The maximum percentage used for the adjustment (if applicable)
     </ResponseField>
 
-    <ResponseField name="increments" type="nullable Array of Increment Objects">
+    <ResponseField name="increments" type="Array of Increment Objects">
       The increments used for the adjustment year by year
       <Expandable title="properties of Increment Object">
 
@@ -111,7 +111,7 @@ title: "The rent adjustment plan object"
              The year when the increment occurs
           </ResponseField>
 
-          <ResponseField name="amount" type="nullable Amount Object">
+          <ResponseField name="amount" type="Amount Object">
              The amount used for the increment
 
              <Expandable title="properties of Amount Object">
@@ -127,7 +127,7 @@ title: "The rent adjustment plan object"
              </Expandable>
           </ResponseField>
 
-          <ResponseField name="percentage" type="nullable number">
+          <ResponseField name="percentage" type="number">
             The percentage used for the increment
           </ResponseField>
 
@@ -156,7 +156,7 @@ title: "The rent adjustment plan object"
       The year the adjustment is applicable
     </ResponseField>
 
-    <ResponseField name="fromYearlyAmount" type="nullable Amount Object">
+    <ResponseField name="fromYearlyAmount" type="Amount Object">
        The from yearly amount used for the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -172,7 +172,7 @@ title: "The rent adjustment plan object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="toYearlyAmount" type="nullable Amount Object">
+    <ResponseField name="toYearlyAmount" type="Amount Object">
        The to yearly amount used for the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -188,7 +188,7 @@ title: "The rent adjustment plan object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="yearlyAmountChange" type="nullable Amount Object">
+    <ResponseField name="yearlyAmountChange" type="Amount Object">
        The yearly amount change of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -204,7 +204,7 @@ title: "The rent adjustment plan object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="periodAmountChange" type="nullable Amount Object">
+    <ResponseField name="periodAmountChange" type="Amount Object">
        The period amount change of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -220,7 +220,7 @@ title: "The rent adjustment plan object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="fromPeriodAmount" type="nullable Amount Object">
+    <ResponseField name="fromPeriodAmount" type="Amount Object">
        The from period amount of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -236,7 +236,7 @@ title: "The rent adjustment plan object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="toPeriodAmount" type="nullable Amount Object">
+    <ResponseField name="toPeriodAmount" type="Amount Object">
        The to period amount of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -252,7 +252,7 @@ title: "The rent adjustment plan object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="fromBalanceAmount" type="nullable Amount Object">
+    <ResponseField name="fromBalanceAmount" type="Amount Object">
        The from balance amount of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -268,7 +268,7 @@ title: "The rent adjustment plan object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="toBalanceAmount" type="nullable Amount Object">
+    <ResponseField name="toBalanceAmount" type="Amount Object">
        The to balance amount of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -284,7 +284,7 @@ title: "The rent adjustment plan object"
        </Expandable>
     </ResponseField>
 
-    <ResponseField name="balanceAmountChange" type="nullable Amount Object">
+    <ResponseField name="balanceAmountChange" type="Amount Object">
        The balance amount change of the rent adjustment (if applicable)
 
        <Expandable title="properties of Amount Object">
@@ -308,27 +308,27 @@ title: "The rent adjustment plan object"
           The unique identifier for the corresponding rent adjustment rule
         </ResponseField>
 
-        <ResponseField name="calculatedPercentage" type="nullable number">
+        <ResponseField name="calculatedPercentage" type="number">
           The calculated adjustment percentage (if applicable)
         </ResponseField>
 
-        <ResponseField name="fromIndex" type="nullable number">
+        <ResponseField name="fromIndex" type="number">
           The from index used to calculate the percentage (if applicable)
         </ResponseField>
 
-        <ResponseField name="toIndex" type="nullable number">
+        <ResponseField name="toIndex" type="number">
           The to index used to calculate the percentage (if applicable)
         </ResponseField>
 
-        <ResponseField name="fromYearMonth" type="nullable string">
+        <ResponseField name="fromYearMonth" type="string">
           The from year and month used to calculate the percentage (if applicable)
         </ResponseField>
 
-        <ResponseField name="toYearMonth" type="nullable string">
+        <ResponseField name="toYearMonth" type="string">
           The to year and month used to calculate the percentage (if applicable)
         </ResponseField>
 
-        <ResponseField name="fromYearlyAmount" type="nullable Amount Object">
+        <ResponseField name="fromYearlyAmount" type="Amount Object">
            The from yearly amount used for the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -344,7 +344,7 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="toYearlyAmount" type="nullable Amount Object">
+        <ResponseField name="toYearlyAmount" type="Amount Object">
            The to yearly amount used for the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -360,7 +360,7 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="yearlyAmountChange" type="nullable Amount Object">
+        <ResponseField name="yearlyAmountChange" type="Amount Object">
            The yearly amount change of the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -376,7 +376,7 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="periodAmountChange" type="nullable Amount Object">
+        <ResponseField name="periodAmountChange" type="Amount Object">
            The period amount change of the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -392,7 +392,7 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="fromPeriodAmount" type="nullable Amount Object">
+        <ResponseField name="fromPeriodAmount" type="Amount Object">
            The from period amount of the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -408,7 +408,7 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="toPeriodAmount" type="nullable Amount Object">
+        <ResponseField name="toPeriodAmount" type="Amount Object">
            The to period amount of the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -424,7 +424,7 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="fromBalanceAmount" type="nullable Amount Object">
+        <ResponseField name="fromBalanceAmount" type="Amount Object">
            The from balance amount of the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -440,7 +440,7 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="toBalanceAmount" type="nullable Amount Object">
+        <ResponseField name="toBalanceAmount" type="Amount Object">
            The to balance amount of the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -456,7 +456,7 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="balanceAmountChange" type="nullable Amount Object">
+        <ResponseField name="balanceAmountChange" type="Amount Object">
            The balance amount change of the rent adjustment rule (if applicable)
 
            <Expandable title="properties of Amount Object">
@@ -472,11 +472,11 @@ title: "The rent adjustment plan object"
            </Expandable>
         </ResponseField>
 
-        <ResponseField name="minimumPercentage" type="nullable number">
+        <ResponseField name="minimumPercentage" type="number">
           The minimum percentage used for the adjustment rule (if applicable)
         </ResponseField>
 
-        <ResponseField name="maximumPercentage" type="nullable number">
+        <ResponseField name="maximumPercentage" type="number">
           The maximum percentage used for the adjustment rule (if applicable)
         </ResponseField>
       </Expandable>

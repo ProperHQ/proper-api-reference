@@ -8,8 +8,8 @@ This request supports pagination.
 
 ### Response
 
-<ResponseField name="contacts" type="Array of Contact Objects">
-  <Expandable title="properties of Contact Object">
+<ResponseField name="contacts" type="array">
+  <Expandable>
 
     <ResponseField name="id" type="string">
       The unique identifier for the contact.
@@ -19,7 +19,7 @@ This request supports pagination.
       The name of the contact.
     </ResponseField>
 
-    <ResponseField name="email" type="nullable string">
+    <ResponseField name="email" type="string">
       The email address of the contact.
     </ResponseField>
 

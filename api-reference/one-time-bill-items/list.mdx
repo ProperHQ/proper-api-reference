@@ -13,8 +13,8 @@ This request supports pagination.
 
 ### Response
 
-<ResponseField name="oneTimeBillItems" type="Array of One-time Bill Item Objects">
-  <Expandable title="properties of One-time Bill Item Object">
+<ResponseField name="oneTimeBillItems" type="array">
+  <Expandable>
 
     <ResponseField name="id" type="string">
       The unique identifier for the one-time bill item
@@ -24,11 +24,11 @@ This request supports pagination.
       The identifier for the lease associated with the one-time bill item
     </ResponseField>
 
-    <ResponseField name="created" type="datetime">
+    <ResponseField name="created" type="date">
       The creation date and time of the one-time bill item in ISO 8601 format
     </ResponseField>
 
-    <ResponseField name="modified" type="datetime">
+    <ResponseField name="modified" type="date">
       The last modification date and time of the one-time bill item in ISO 8601 format
     </ResponseField>
 
@@ -36,14 +36,14 @@ This request supports pagination.
       The key or identifier for the product or service billed (e.g., "key:rent")
     </ResponseField>
 
-    <ResponseField name="description" type="nullable string">
+    <ResponseField name="description" type="string">
       The content of the description that is going to be put on the bill
     </ResponseField>
 
-    <ResponseField name="amount" type="Amount Object">
+    <ResponseField name="amount" type="object">
        The amount charged for the one-time bill item
 
-       <Expandable title="properties of Amount Object">
+       <Expandable>
 
          <ResponseField name="currency" type="string">
            The currency code for the one-time bill item amount (e.g., "DKK")
@@ -65,16 +65,16 @@ This request supports pagination.
       The accounting period for the one-time bill item, in the format "YYYY-MM-DD/YYYY-MM-DD"
     </ResponseField>
 
-    <ResponseField name="vat" type="VAT Object">
+    <ResponseField name="vat" type="object">
       The VAT details for the one-time bill item
 
-      <Expandable title="properties of VAT Object">
+      <Expandable>
 
         <ResponseField name="taxMode" type="string">
           The tax mode for the VAT (e.g., "Exempt", "Exclusive")
         </ResponseField>
 
-        <ResponseField name="taxRate" type="nullable number">
+        <ResponseField name="taxRate" type="number">
           The tax rate for the VAT (e.g., 0.25)
         </ResponseField>
 
