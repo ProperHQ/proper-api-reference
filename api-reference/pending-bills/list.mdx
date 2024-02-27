@@ -1,0 +1,138 @@
+---
+title: "List pending bills"
+api: "GET /pending-bills"
+---
+
+### Request
+
+<ParamField query="leaseId" type="string" required>
+  Lease identifier for which pending bills will be retrieved
+</ParamField>
+
+<ParamField query="period" type="string" required>
+  The    period for pending bills, in the format "YYYY-MM-DD/YYYY-MM-DD"
+</ParamField>
+
+### Response
+
+<ResponseField name="bills" type="Array of Bill Objects">
+  <Expandable title="properties of Bill Objects">
+
+    <ResponseField name="dueDate" type="date">
+      The due date for the pending bill payment in ISO 8601 format
+    </ResponseField>
+
+    <ResponseField name="pendingBillLineItems" type="Array of Pending Bill Line Item Objects">
+      <Expandable title="properties of Pending Bill Line Item Object">
+
+        <ResponseField name="productKey" type="string">
+          The key or identifier for the product or service billed
+        </ResponseField>
+
+        <ResponseField name="amount" type="Amount Object">
+          The amount charged for the item
+          <Expandable title="properties of Amount Object">
+
+            <ResponseField name="currency" type="string">
+              The currency code for the amount (e.g., "DKK")
+            </ResponseField>
+
+            <ResponseField name="amount" type="number">
+              The amount charged
+            </ResponseField>
+
+          </Expandable>
+        </ResponseField>
+
+        <ResponseField name="vat" type="VAT Object">
+          The VAT details for the pending bill line item
+
+          <Expandable title="properties of VAT Object">
+
+            <ResponseField name="taxMode" type="string">
+              The tax mode for the VAT (e.g., "Exempt")
+            </ResponseField>
+
+            <ResponseField name="taxRate" type="nullable number">
+              The tax rate for the VAT (e.g., 0.25)
+            </ResponseField>
+
+              </Expandable>
+            </ResponseField>
+
+            <ResponseField name="accountingPeriod" type="string">
+              The accounting period for the pending bill line item, in the format "YYYY-MM-DD/YYYY-MM-DD"
+            </ResponseField>
+
+          </Expandable>
+        </ResponseField>
+
+    <ResponseField name="subtotal" type="Amount Object">
+      The subtotal amount for the pending bill
+      <Expandable title="properties of Amount Object">
+
+        <ResponseField name="currency" type="string">
+          The currency code for the subtotal (e.g., "DKK")
+        </ResponseField>
+
+        <ResponseField name="amount" type="number">
+          The subtotal amount
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="total" type="Amount Object">
+      The total amount due for the pending bill
+      <Expandable title="properties of Amount Object">
+
+        <ResponseField name="currency" type="string">
+          The currency code for the total (e.g., "DKK")
+        </ResponseField>
+
+        <ResponseField name="amount" type="number">
+          The total amount due
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="vatTotals" type="Array of VAT Total Objects">
+      The total VAT amounts for the pending bill, split by different VAT rates or categories
+      <Expandable title="properties of VAT Total Object">
+
+        <ResponseField name="vat" type="VAT Object">
+          The VAT details for the pending bill line item
+          <Expandable title="properties of VAT Object">
+
+            <ResponseField name="taxMode" type="string">
+              The tax mode for the VAT (e.g., "Exempt")
+            </ResponseField>
+
+            <ResponseField name="taxRate" type="nullable number">
+              The tax rate for the VAT (e.g., 0.25)
+            </ResponseField>
+
+          </Expandable>
+        </ResponseField>
+
+        <ResponseField name="amount" type="Amount Object">
+          The total amount for the VAT category
+          <Expandable title="properties of Amount Object">
+
+            <ResponseField name="currency" type="string">
+              The currency code for the amount (e.g., "DKK")
+            </ResponseField>
+
+            <ResponseField name="amount" type="number">
+              The amount
+            </ResponseField>
+
+          </Expandable>
+        </ResponseField>
+
+      </Expandable>
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
