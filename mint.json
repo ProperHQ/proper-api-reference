@@ -74,6 +74,13 @@
           ]
         },
         {
+          "group": "Pending bills",
+          "pages": [
+            "api-reference/pending-bills/object",
+            "api-reference/pending-bills/list"
+          ]
+        },
+        {
           "group": "Payments",
           "pages": [
             "api-reference/payments/object",
