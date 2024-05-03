@@ -157,6 +157,26 @@ This request supports pagination.
 
     </ResponseField>
 
+    <ResponseField name="quantityRecords" type="array">
+
+      <Expandable>
+
+        <ResponseField name="id" type="string">
+          The unique identifier for the quantity record
+        </ResponseField>
+
+        <ResponseField name="value" type="Number">
+          The quantity of items that is going to be put on the bill
+        </ResponseField>
+
+        <ResponseField name="start" type="date">
+          The date in ISO 8601 format from which the quantity is valid
+        </ResponseField>
+
+      </Expandable>
+
+    </ResponseField>
+
   </Expandable>
 
 </ResponseField>
