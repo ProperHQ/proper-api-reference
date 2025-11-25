@@ -63,7 +63,8 @@
           "pages": [
             "api-reference/leases/object",
             "api-reference/leases/list",
-            "api-reference/leases/get"
+            "api-reference/leases/get",
+            "api-reference/leases/list-transactions"
           ]
         },
         {

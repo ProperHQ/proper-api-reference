@@ -4,4 +4,141 @@ title: "The transaction object"
 
 ### Attributes
 
-Coming soon...
+<ResponseField name="id" type="string">
+  Unique identifier for the transaction
+</ResponseField>
+
+<ResponseField name="type" type="string">
+  Transaction type: "Payment" or "Charge"
+</ResponseField>
+
+<ResponseField name="transactionNumber" type="integer">
+  Sequential transaction number within the lease
+</ResponseField>
+
+<ResponseField name="amount" type="Money Object">
+  Transaction amount
+  <Expandable title="properties of Money Object">
+
+    <ResponseField name="currency" type="string">
+      ISO 4217 currency code (e.g., "DKK", "EUR")
+    </ResponseField>
+
+    <ResponseField name="amount" type="number">
+      Numeric amount
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="vat" type="Tax Object">
+  VAT/tax information if applicable (nullable)
+  <Expandable title="properties of Tax Object">
+
+    <ResponseField name="taxMode" type="string">
+      One of: "Inclusive", "Exclusive", "Exempt", "ReverseCharge"
+    </ResponseField>
+
+    <ResponseField name="taxRate" type="number">
+      Tax rate as decimal (e.g., 0.25 for 25%). Null if taxMode is Exempt or ReverseCharge.
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="registrationDate" type="date">
+  Date the transaction was registered (ISO 8601: YYYY-MM-DD)
+</ResponseField>
+
+<ResponseField name="paymentDate" type="date">
+  Date of payment (for payment transactions, nullable)
+</ResponseField>
+
+<ResponseField name="chargeDate" type="date">
+  Date the charge applies to
+</ResponseField>
+
+<ResponseField name="dueDate" type="date">
+  Payment due date (nullable)
+</ResponseField>
+
+<ResponseField name="description" type="SmartText Object">
+  Localized description with translation keys (nullable)
+  <Expandable title="properties of SmartText Object">
+
+    <ResponseField name="key" type="string">
+      Translation key
+    </ResponseField>
+
+    <ResponseField name="params" type="object">
+      Parameters for the translation
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="productId" type="string">
+  Associated product ID (nullable)
+</ResponseField>
+
+<ResponseField name="productKey" type="string">
+  Product reference key (nullable)
+</ResponseField>
+
+<ResponseField name="productName" type="object">
+  Multi-language product name (nullable)
+  <Expandable title="properties of productName">
+
+    <ResponseField name="en" type="string">
+      English product name
+    </ResponseField>
+
+    <ResponseField name="da" type="string">
+      Danish product name
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="balance" type="Money Object">
+  Running balance after this transaction
+  <Expandable title="properties of Money Object">
+
+    <ResponseField name="currency" type="string">
+      ISO 4217 currency code (e.g., "DKK", "EUR")
+    </ResponseField>
+
+    <ResponseField name="amount" type="number">
+      Numeric amount
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="annulled" type="boolean">
+  Whether the transaction has been cancelled
+</ResponseField>
+
+<ResponseField name="annulledReason" type="string">
+  Reason for cancellation (nullable, only if annulled)
+</ResponseField>
+
+<ResponseField name="descriptionText" type="string">
+  Plain text description override (nullable)
+</ResponseField>
+
+<ResponseField name="paymentId" type="string">
+  Link to associated payment (nullable)
+</ResponseField>
+
+<ResponseField name="billId" type="string">
+  Link to associated bill (nullable)
+</ResponseField>
+
+<ResponseField name="moveOutStatementId" type="string">
+  Link to move-out statement (nullable)
+</ResponseField>
+
+<ResponseField name="defaultNoticeDocumentId" type="string">
+  Link to default notice document (nullable)
+</ResponseField>
